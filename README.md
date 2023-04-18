@@ -1,5 +1,4 @@
 # Blok4-Tech-Feature-Jop
 
-update 17 April 12:46
-
-met de command line mwokdmewonoiweinio
+# Idee
+Ik wil dit blok graag een chat systeem maken. Als je gematched bent met een persoon krijg je een popup en komt diegene in je contactenlijst naast de chat (net zoals whatsapp).
