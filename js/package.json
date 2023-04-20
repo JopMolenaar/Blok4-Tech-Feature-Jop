@@ -1,0 +1,15 @@
+{
+  "name": "blok4-tech-feature-jop",
+  "version": "1.0.0",
+  "description": "# Idee Ik wil dit blok graag een chat systeem maken. Als je gematched bent met een persoon krijg je een popup en komt diegene in je contactenlijst naast de chat (net zoals whatsapp).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
