@@ -4,7 +4,9 @@ const popup1 = document.querySelector("main section:first-child")
 const popup2 = document.querySelector("main section:nth-child(2)")
 
 const yourId = 23892
+// get your id from the database
 
+// get contact list form database
 let personsArray = []
 function addPerson(name, lastName, pfPicture, id){
     const person = new People(name, lastName, pfPicture, id);
@@ -21,6 +23,7 @@ function createAllContacts(){
 
 function duplicateTemplate(){
     personsArray.map((person)=>{
+        // create contact list form list out the database
         const contactsList = document.querySelector(".contacts-list")
         const template = document.querySelector(".listTemplate")
         const tableHTML = template.content.firstElementChild.cloneNode(true);
@@ -29,24 +32,59 @@ function duplicateTemplate(){
         const placePfPicture = tableHTML.querySelector("li a img")
         placePfPicture.src = person.pfPicture
         const idOfList = tableHTML.querySelector("a")
-        idOfList.id = person.getLowerCaseID()
+        idOfList.id = person.id
         contactsList.appendChild(tableHTML);
-
-        console.log(person.id);
-        console.log(`The chat id is ${person.id}${yourId}`)
     })
+}
+
+function getChatFromContact (){
+    const contactListLink = document.querySelectorAll(`main nav a`)
+    contactListLink.forEach((list) => {
+        //duplicate
+        const chatPlace = document.querySelector(".chatPlace")
+        const chatTemplate = document.querySelector(".chatTemplate")
+        const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true);
+        chatHTML.id = `${list.id}${yourId}`
+        chatPlace.appendChild(chatHTML);
+        chatHTML.style.display = "none"
+
+
+
+    //TODO: FINISH THIS FUNCTION WHERE THE NAME COMES IN THE CHAT
+        personsArray.map((person)=>{
+            // fill in the template
+            const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
+            console.log(person.id );
+            if(person.id === list.id){
+                nameFromId.textContent = `${person.name}${list.id}${yourId}`
+            }
+        })
+    
+        list.addEventListener(`click`, () => {
+            // open chat
+            if(chatHTML.id === `${list.id}${yourId}`){
+                const chats = document.querySelectorAll("main .chatPlace > div")
+                chats.forEach((chat) => {
+                    chat.style.display = "none"
+                })
+                chatHTML.style.display = "flex"
+            }
+            // get chat from database?
+        })
+    })    
 }
 
 switch (body.id) {
     case "home":    
         createAllContacts()
         duplicateTemplate()
-
+        getChatFromContact()
         showChatButton.addEventListener("click", ()=>{
             popup1.style.display = "none"
             popup2.style.display = "none"
         })
 
+        // popup animation
         setTimeout(() =>{
             popup1.style.display = "flex"
          }, 1000)
@@ -54,7 +92,7 @@ switch (body.id) {
             popup2.style.display = "flex"
          }, 3000)
          setTimeout(() =>{
-            popup1.style.display = "none"
+            popup1.style.display = "none"  
             popup2.style.display = "none"
          }, 8000)
         break;
@@ -62,24 +100,6 @@ switch (body.id) {
         console.error("this id is not supported");
         break;
 }
-
-
-
-// const contactListLink = document.querySelectorAll(`main nav a`)
-// contactListLink.forEach((list) => {
-//     console.log(list.id);
-// })
-const firstContactListLink = document.querySelector(`main nav a`)
-firstContactListLink.addEventListener(`click`, () => {
-    // duplicate, and open chat with the chat number (user id + your id = chat id)
-    console.log("id");
-})
-// de linkjes staan nog op #
-
-
-
-
-
 
 
 
