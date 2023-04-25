@@ -13,12 +13,12 @@ function addPerson(name, lastName, pfPicture, id){
     personsArray.push(person) 
 }
 function createAllContacts(){
-  addPerson("Joe", "Roger", "images/pfpicture.png", 23123)
-  addPerson("Frank", "Skinson", "images/pfpicture.png", 13242)
-  addPerson("Lizz", "Balbla", "images/pfpicture.png", 78373)
-  addPerson("John", "Paddington", "images/pfpicture.png", 80282)
-  addPerson("Meteo", "Stars", "images/pfpicture.png", 73982)
-  addPerson("Bob", "Bobbert", "images/pfpicture.png", 69173)
+  addPerson("Joe", "Roger", "static/images/pfpicture.png", 23123)
+  addPerson("Frank", "Skinson", "static/images/pfpicture.png", 13242)
+  addPerson("Lizz", "Balbla", "static/images/pfpicture.png", 78373)
+  addPerson("John", "Paddington", "static/images/pfpicture.png", 80282)
+  addPerson("Meteo", "Stars", "static/images/pfpicture.png", 73982)
+  addPerson("Bob", "Bobbert", "static/images/pfpicture.png", 69173)
 }
 
 function duplicateTemplate(){
