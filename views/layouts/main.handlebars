@@ -3,10 +3,17 @@
 <head>
     <meta charset="utf-8">
     <title>Example App</title>
+     {{!-- {{#each css}} --}}
+        <link rel="stylesheet" href="/styles/home.css">
+        <link rel="stylesheet" href="/styles/style.css">
+    {{!-- {{/each}} --}}
 </head>
-<body>
+<body id="mainHandlebars">
 
     {{{body}}}
-
+    {{!-- {{#each js}} --}}
+        <script src="/js/addPeople.js"></script>
+        <script src="/js/script.js"></script>
+    {{!-- {{/each}} --}}
 </body>
 </html>

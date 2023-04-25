@@ -1,1 +1,67 @@
-<h1>Example App: Home</h1>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Swipe area</a>
+                </li>
+                <li>
+                    <a href="#">Matches</a>
+                </li>
+                <li>
+                    <a href="#">Account</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>You've got a <span>MATCH</span>!</h2>
+        </section>
+        <section>
+            <h2 class="visually-hidden">Your match</h2>
+            <section>
+                <img src="images/pfpicture.png" alt="Photo of your match">
+            </section>
+            <ul>
+                <li>John Paddington</li>
+                <li>22 yrs old</li>
+                <li>10km away</li>
+                <li>Likes Ice cream</li>
+            </ul>
+            <button>Open chat</button>
+        </section>
+        <nav>
+            <ul class="contacts-list">
+            </ul>
+        </nav>
+        <section class="chatPlace">
+            <h2>No chat opened</h2>
+        </section>
+    </main>
+
+    <template class="listTemplate">
+        <li>
+            <a href="#">
+                <img src="" alt="Profile picture">
+                <p>Name</p>
+            </a>
+        </li>
+    </template>
+
+    <template class="chatTemplate">
+        <div>
+            <div>
+                <button>Back</button>
+                <img src="" alt="profile img">
+                <h2>Name</h2>
+            </div>
+            <div>
+                <!-- chat -->
+            </div>
+            <div>
+                <button>Smileys</button>
+                <button>Language</button>
+                <input type="text">
+            </div>
+        </div>
+    </template>
