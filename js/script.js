@@ -48,16 +48,15 @@ function getChatFromContact (){
         chatPlace.appendChild(chatHTML);
         chatHTML.style.display = "none"
 
-
-
-    //TODO: FINISH THIS FUNCTION WHERE THE NAME COMES IN THE CHAT
         personsArray.map((person)=>{
             // fill in the template
             const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
-            console.log(person.id );
-            if(person.id === list.id){
-                nameFromId.textContent = `${person.name}${list.id}${yourId}`
+            if(person.id == list.id){
+                nameFromId.textContent = `${person.name} ${list.id}${yourId}`
             }
+
+
+
         })
     
         list.addEventListener(`click`, () => {
