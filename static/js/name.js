@@ -4,4 +4,3 @@ function name () {
     const name = "Jop"
     return name
 }
-

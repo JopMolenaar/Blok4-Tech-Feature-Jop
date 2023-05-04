@@ -4,14 +4,17 @@ const app = express();
 const PORT = process.env.PORT || 3000
 const path = require('path');
 
+const testLink = "Swipe area"
+
 const { engine } = require("express-handlebars");
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 app.use(express.static(path.join(__dirname, '/static')));
+
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {linkOne: testLink})
 });
 
 app.get('/about', (req, res) => {
@@ -23,7 +26,8 @@ app.get('/login', (req, res) => {
 })
 
 app.get(`*`, (req, res) => {
-  res.status(404).send('Error 404');
+  // res.render('home')
+  res.status(404).render('notfound');
 })
 
 app.listen(PORT, () =>{
