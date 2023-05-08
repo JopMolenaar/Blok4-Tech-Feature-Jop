@@ -53,7 +53,7 @@ function getChatFromContact (){
             // fill in the template
             const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
             if(person.id == list.id){
-                nameFromId.textContent =  `${list.id}`*`${yourId}` //`${person.name}`
+                nameFromId.textContent = `${person.name}`  //`${person.name}` `${list.id}`*`${yourId}`
             }
         })
     
