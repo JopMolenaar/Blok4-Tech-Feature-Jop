@@ -101,6 +101,9 @@ switch (body.id) {
 }
 
 
+// TODO: style de chat, probeer iets te sturen, aan de hand van of you id iets stuurt komt ie aan de rechter kant, andere aan de linker.  
+
+
 
   // const User = mongoose.model('User', new mongoose.Schema({
 //     name: {
