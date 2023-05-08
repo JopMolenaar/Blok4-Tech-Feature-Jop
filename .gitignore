@@ -3,3 +3,6 @@ node_modules
 
 # vs code folder
 .vscode
+
+# eslint
+.eslintrc.js
