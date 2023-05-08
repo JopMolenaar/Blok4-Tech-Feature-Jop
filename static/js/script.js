@@ -43,25 +43,24 @@ function getChatFromContact (){
         //duplicate
         const chatPlace = document.querySelector(".chatPlace")
         const chatTemplate = document.querySelector(".chatTemplate")
-        const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true);
-        chatHTML.id = `${list.id}${yourId}`
-        chatPlace.appendChild(chatHTML);
+        const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true)
+        chatHTML.id = `${list.id}`*`${yourId}`
+        console.log(chatHTML.id);
+        chatPlace.appendChild(chatHTML)
         chatHTML.style.display = "none"
 
         personsArray.map((person)=>{
             // fill in the template
             const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
             if(person.id == list.id){
-                nameFromId.textContent = `${person.name} ${list.id}${yourId}`
+                nameFromId.textContent =  `${list.id}`*`${yourId}` //`${person.name}`
             }
-
-
-
         })
     
         list.addEventListener(`click`, () => {
             // open chat
-            if(chatHTML.id === `${list.id}${yourId}`){
+            console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
+            if(chatHTML.id == `${list.id}`*`${yourId}`){
                 const chats = document.querySelectorAll("main .chatPlace > div")
                 chats.forEach((chat) => {
                     chat.style.display = "none"
