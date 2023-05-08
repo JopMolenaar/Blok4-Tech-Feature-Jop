@@ -59,7 +59,7 @@ function getChatFromContact (){
     
         list.addEventListener(`click`, () => {
             // open chat
-            console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
+            // console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
             if(chatHTML.id == `${list.id}`*`${yourId}`){
                 const chats = document.querySelectorAll("main .chatPlace > div")
                 chats.forEach((chat) => {
