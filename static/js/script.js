@@ -62,9 +62,11 @@ function getChatFromContact (){
             // console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
             if(chatHTML.id == `${list.id}`*`${yourId}`){
                 const chats = document.querySelectorAll("main .chatPlace > div")
+                const noChatOpend = chatPlace.querySelector("h2")
                 chats.forEach((chat) => {
                     chat.style.display = "none"
                 })
+                noChatOpend.style.display = "none"
                 chatHTML.style.display = "flex"
             }
             // get chat from database?
