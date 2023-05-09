@@ -8,11 +8,11 @@ const yourId = 23892
 
 // get contact list form database
 let personsArray = []
-function addPerson(name, lastName, pfPicture, id){
-    const person = new People(name, lastName, pfPicture, id);
+const addPerson = (name, lastName, pfPicture, id) => {
+    const person = new People(name, lastName, pfPicture, id)
     personsArray.push(person) 
 }
-function createAllContacts(){
+const createAllContacts = () => {
   addPerson("Joe", "Roger", "images/pfpicture.png", 23123)
   addPerson("Frank", "Skinson", "images/pfpicture.png", 13242)
   addPerson("Lizz", "Balbla", "images/pfpicture.png", 78373)
@@ -21,31 +21,31 @@ function createAllContacts(){
   addPerson("Bob", "Bobbert", "images/pfpicture.png", 69173)
 }
 
-function duplicateTemplate(){
+const duplicateTemplate = () => {
     personsArray.map((person)=>{
         // create contact list form list out the database
         const contactsList = document.querySelector(".contacts-list")
         const template = document.querySelector(".listTemplate")
-        const tableHTML = template.content.firstElementChild.cloneNode(true);
+        const tableHTML = template.content.firstElementChild.cloneNode(true)
         const placeName = tableHTML.querySelector("li a p")
         placeName.textContent = `${person.name} ${person.lastName}`
         const placePfPicture = tableHTML.querySelector("li a img")
         placePfPicture.src = person.pfPicture
         const idOfList = tableHTML.querySelector("a")
         idOfList.id = person.id
-        contactsList.appendChild(tableHTML);
+        contactsList.appendChild(tableHTML)
     })
 }
 
-function getChatFromContact (){
-    const contactListLink = document.querySelectorAll(`main nav a`)
+const getChatFromContact = () =>{
+    const contactListLink = document.querySelectorAll("main nav a")
     contactListLink.forEach((list) => {
         //duplicate
         const chatPlace = document.querySelector(".chatPlace")
         const chatTemplate = document.querySelector(".chatTemplate")
         const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true)
         chatHTML.id = `${list.id}`*`${yourId}`
-        console.log(chatHTML.id);
+        console.log(chatHTML.id)
         chatPlace.appendChild(chatHTML)
         chatHTML.style.display = "none"
 
@@ -53,11 +53,11 @@ function getChatFromContact (){
             // fill in the template
             const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
             if(person.id == list.id){
-                nameFromId.textContent = `${person.name}`  //`${person.name}` `${list.id}`*`${yourId}`
+                nameFromId.textContent = `${person.name}`
             }
         })
     
-        list.addEventListener(`click`, () => {
+        list.addEventListener("click", () => {
             // open chat
             // console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
             if(chatHTML.id == `${list.id}`*`${yourId}`){
@@ -71,7 +71,7 @@ function getChatFromContact (){
             }
             // get chat from database?
         })
-    })    
+    })  
 }
 
 switch (body.id) {
@@ -96,14 +96,21 @@ switch (body.id) {
             popup1.style.display = "none"  
             popup2.style.display = "none"
          }, 8000)
-        break;
+        break
     default:
-        console.error("this id is not supported");
-        break;
+        console.error("this id is not supported")
+        break
 }
 
 
-// TODO: style de chat, probeer iets te sturen, aan de hand van of you id iets stuurt komt ie aan de rechter kant, andere aan de linker.  
+// TODO: style de chat, probeer iets te sturen, aan de hand van of your id iets stuurt komt ie aan de rechter kant, andere aan de linker.  
+
+
+
+
+
+
+
 
 
 
