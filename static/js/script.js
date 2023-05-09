@@ -134,7 +134,10 @@ switch (body.id) {
 }
 
 
-// TODO: style de chat, probeer iets te sturen, aan de hand van of your id iets stuurt komt ie aan de rechter kant, andere aan de linker.  
+// TODO: (woensdag middag)
+// - backend hw => meer proberen met handlebars, (dingen includen etc)
+// - wiki onderzoek bijwerken
+// - inlezen in socket.io
 
 
 
