@@ -1,6 +1,6 @@
 module.exports = name
 
-const name = () => {
+function name () {
     const name = "Jop"
     return name
 }

@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 3000
 const path = require("path")
-
+// let ipAddress
 const testLink = "Swipe area"
 
 const { engine } = require("express-handlebars")
@@ -14,8 +14,15 @@ app.set("views", "./views")
 app.use(express.static(path.join(__dirname, "/static")))
 
 app.get("/", (req, res) => {
+    const ipAddress = req.socket.remoteAddress;
+    module.exports = ipAddress
+    console.log(ipAddress);
+    // res.send(ipAddress);
     res.render("home", {linkOne: testLink})
 })
+
+
+
 
 app.get("/about", (req, res) => {
   res.send(`About ${name()}`)

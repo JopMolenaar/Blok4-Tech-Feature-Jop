@@ -1,7 +1,16 @@
+// const ipAddress = require("../../server.js")
+
+// console.log(ipAddress);
 const showChatButton = document.querySelector("main section:nth-child(2) button")
 const body = document.querySelector("body")
 const popup1 = document.querySelector("main section:first-child")
 const popup2 = document.querySelector("main section:nth-child(2)")
+
+const chatPlace = document.querySelector(".chatPlace")
+const chatTemplate = document.querySelector(".chatTemplate")
+
+const contactsList = document.querySelector(".contacts-list")
+const template = document.querySelector(".listTemplate")
 
 const yourId = 23892
 // get your id from the database
@@ -24,8 +33,6 @@ const createAllContacts = () => {
 const duplicateTemplate = () => {
     personsArray.map((person)=>{
         // create contact list form list out the database
-        const contactsList = document.querySelector(".contacts-list")
-        const template = document.querySelector(".listTemplate")
         const tableHTML = template.content.firstElementChild.cloneNode(true)
         const placeName = tableHTML.querySelector("li a p")
         placeName.textContent = `${person.name} ${person.lastName}`
@@ -41,8 +48,6 @@ const getChatFromContact = () =>{
     const contactListLink = document.querySelectorAll("main nav a")
     contactListLink.forEach((list) => {
         //duplicate
-        const chatPlace = document.querySelector(".chatPlace")
-        const chatTemplate = document.querySelector(".chatTemplate")
         const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true)
         chatHTML.id = `${list.id}`*`${yourId}`
         console.log(chatHTML.id)
@@ -53,7 +58,9 @@ const getChatFromContact = () =>{
             // fill in the template
             const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
             if(person.id == list.id){
-                nameFromId.textContent = `${person.name}`
+                nameFromId.textContent = `${person.name} ${person.lastName}`
+                const pfPicture = chatHTML.querySelector("img")
+                pfPicture.src = person.pfPicture
             }
         })
     
@@ -74,12 +81,34 @@ const getChatFromContact = () =>{
     })  
 }
 
+
+const sendMassage = () => {
+    const textField = chatPlace.querySelectorAll("div div:nth-child(3) input") 
+    const massageField = chatPlace.querySelector(" div div:nth-child(2)") 
+    textField.forEach((field)=>{        
+        field.addEventListener("change", (e) => {
+            const newDiv = document.createElement("div")
+            massageField.appendChild(newDiv)
+            newDiv.textContent = e.target.value
+            if (yourId === 23892) {
+            newDiv.style.justifyContent = "flex-end"
+            } else {
+                newDiv.style.justifyContent = "flex-start"
+            }
+            if (field.value !="") {
+                field.value = "";
+           }
+        })
+    })
+}
+
 switch (body.id) {
     case "home":   
     case "mainHandlebars": 
         createAllContacts()
         duplicateTemplate()
         getChatFromContact()
+        sendMassage()
         showChatButton.addEventListener("click", ()=>{
             popup1.style.display = "none"
             popup2.style.display = "none"

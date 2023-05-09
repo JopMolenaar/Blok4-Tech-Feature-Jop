@@ -9,6 +9,9 @@ $color-span: red;
 body::-webkit-scrollbar {
     display: none;
 }
+body {
+    overflow-y: hidden;
+}
 
 header {
     height: 4em;
@@ -152,10 +155,27 @@ main {
                 flex-direction: row;
                 height: 5%;
                 gap: 4em;
-                // justify-content: space-between;
+                border-bottom: #232323 solid 3px;
+                padding: 0.5em;
+                > img {
+                    width: auto;
+                    height: 100%;
+                }
             }
             div:nth-child(2) {
                 height: 85%;
+                overflow: auto;
+                padding: 0;
+                div {
+                    width: 95%;
+                    height: fit-content;
+                    padding: 0.5em;
+                    font-size: 1.5em;
+                    margin: 0.5em;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: row;
+                }
             }
             div:nth-child(3) {
                 height: 10%;
