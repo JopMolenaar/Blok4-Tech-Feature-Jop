@@ -87,13 +87,15 @@ const sendMassage = () => {
     const massageField = chatPlace.querySelector(" div div:nth-child(2)") 
     textField.forEach((field)=>{        
         field.addEventListener("change", (e) => {
-            const newDiv = document.createElement("div")
-            massageField.appendChild(newDiv)
-            newDiv.textContent = e.target.value
+            const chatRow = document.createElement("div")
+            const chat = document.createElement("p")
+            massageField.appendChild(chatRow)
+            chatRow.appendChild(chat)
+            chat.textContent = e.target.value
             if (yourId === 23892) {
-            newDiv.style.justifyContent = "flex-end"
+                chatRow.style.justifyContent = "flex-end"
             } else {
-                newDiv.style.justifyContent = "flex-start"
+                chatRow.style.justifyContent = "flex-start"
             }
             if (field.value !="") {
                 field.value = "";
