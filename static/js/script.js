@@ -19,19 +19,19 @@ const yourId = 23892
 let personsArray = []
 const addPerson = (name, lastName, pfPicture, id) => {
     const person = new People(name, lastName, pfPicture, id)
-    personsArray.push(person) 
+    personsArray.push(person)
 }
 const createAllContacts = () => {
-  addPerson("Joe", "Roger", "images/pfpicture.png", 23123)
-  addPerson("Frank", "Skinson", "images/pfpicture.png", 13242)
-  addPerson("Lizz", "Balbla", "images/pfpicture.png", 78373)
-  addPerson("John", "Paddington", "images/pfpicture.png", 80282)
-  addPerson("Meteo", "Stars", "images/pfpicture.png", 73982)
-  addPerson("Bob", "Bobbert", "images/pfpicture.png", 69173)
+    addPerson("Joe", "Roger", "images/pfpicture.png", 23123)
+    addPerson("Frank", "Skinson", "images/pfpicture.png", 13242)
+    addPerson("Lizz", "Balbla", "images/pfpicture.png", 78373)
+    addPerson("John", "Paddington", "images/pfpicture.png", 80282)
+    addPerson("Meteo", "Stars", "images/pfpicture.png", 73982)
+    addPerson("Bob", "Bobbert", "images/pfpicture.png", 69173)
 }
 
 const duplicateTemplate = () => {
-    personsArray.map((person)=>{
+    personsArray.map((person) => {
         // create contact list form list out the database
         const tableHTML = template.content.firstElementChild.cloneNode(true)
         const placeName = tableHTML.querySelector("li a p")
@@ -44,30 +44,30 @@ const duplicateTemplate = () => {
     })
 }
 
-const getChatFromContact = () =>{
+const getChatFromContact = () => {
     const contactListLink = document.querySelectorAll("main nav a")
     contactListLink.forEach((list) => {
         //duplicate
         const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true)
-        chatHTML.id = `${list.id}`*`${yourId}`
+        chatHTML.id = `${list.id}` * `${yourId}`
         console.log(chatHTML.id)
         chatPlace.appendChild(chatHTML)
         chatHTML.style.display = "none"
 
-        personsArray.map((person)=>{
+        personsArray.map((person) => {
             // fill in the template
             const nameFromId = chatHTML.querySelector("div:nth-child(1) h2")
-            if(person.id == list.id){
+            if (person.id == list.id) {
                 nameFromId.textContent = `${person.name} ${person.lastName}`
                 const pfPicture = chatHTML.querySelector("img")
                 pfPicture.src = person.pfPicture
             }
         })
-    
+
         list.addEventListener("click", () => {
             // open chat
             // console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
-            if(chatHTML.id == `${list.id}`*`${yourId}`){
+            if (chatHTML.id == `${list.id}` * `${yourId}`) {
                 const chats = document.querySelectorAll("main .chatPlace > div")
                 const noChatOpend = chatPlace.querySelector("h2")
                 chats.forEach((chat) => {
@@ -78,14 +78,13 @@ const getChatFromContact = () =>{
             }
             // get chat from database?
         })
-    })  
+    })
 }
 
-
 const sendMassage = () => {
-    const textField = chatPlace.querySelectorAll("div div:nth-child(3) input") 
-    const massageField = chatPlace.querySelector(" div div:nth-child(2)") 
-    textField.forEach((field)=>{        
+    const textField = chatPlace.querySelectorAll("div div:nth-child(3) input")
+    const massageField = chatPlace.querySelector(" div div:nth-child(2)")
+    textField.forEach((field) => {
         field.addEventListener("change", (e) => {
             const chatRow = document.createElement("div")
             const chat = document.createElement("p")
@@ -97,58 +96,48 @@ const sendMassage = () => {
             } else {
                 chatRow.style.justifyContent = "flex-start"
             }
-            if (field.value !="") {
-                field.value = "";
-           }
+            if (field.value != "") {
+                field.value = ""
+            }
         })
     })
 }
 
 switch (body.id) {
-    case "home":   
-    case "mainHandlebars": 
+    case "home":
+    case "mainHandlebars":
         createAllContacts()
         duplicateTemplate()
         getChatFromContact()
         sendMassage()
-        showChatButton.addEventListener("click", ()=>{
+        showChatButton.addEventListener("click", () => {
             popup1.style.display = "none"
             popup2.style.display = "none"
         })
 
         // popup animation
-        setTimeout(() =>{
+        setTimeout(() => {
             popup1.style.display = "flex"
-         }, 1000)
-         setTimeout(() =>{
+        }, 1000)
+        setTimeout(() => {
             popup2.style.display = "flex"
-         }, 3000)
-         setTimeout(() =>{
-            popup1.style.display = "none"  
+        }, 3000)
+        setTimeout(() => {
+            popup1.style.display = "none"
             popup2.style.display = "none"
-         }, 8000)
+        }, 8000)
         break
     default:
         console.error("this id is not supported")
         break
 }
 
-
 // TODO: (woensdag middag)
 // - backend hw => meer proberen met handlebars, (dingen includen etc)
 // - wiki onderzoek bijwerken
 // - inlezen in socket.io
 
-
-
-
-
-
-
-
-
-
-  // const User = mongoose.model('User', new mongoose.Schema({
+// const User = mongoose.model('User', new mongoose.Schema({
 //     name: {
 //         type: String,
 //         required: true,
