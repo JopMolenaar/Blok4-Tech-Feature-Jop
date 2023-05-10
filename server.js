@@ -13,31 +13,29 @@ app.set("views", "./views")
 
 app.use(express.static(path.join(__dirname, "/static")))
 
+const array = ["array 1", "array 2", "array 3", "array 4"]
+
 app.get("/", (req, res) => {
-    const ipAddress = req.socket.remoteAddress;
+    const ipAddress = req.socket.remoteAddress
     module.exports = ipAddress
-    console.log(ipAddress);
+    console.log(ipAddress)
     // res.send(ipAddress);
-    res.render("home", {linkOne: testLink})
+    res.render("home", { linkOne: testLink })
 })
 
-
-
-
 app.get("/about", (req, res) => {
-  res.send(`About ${name()}`)
+    res.send(`About ${name()}`)
 })
 
 app.get("/login", (req, res) => {
-  res.send(`Log in ${name()}`)
+    res.send(`Log in ${name()}`)
 })
 
 app.get("*", (req, res) => {
-  // res.render('home')
-  res.status(404).render("notfound")
+    // res.render('home')
+    res.status(404).render("notfound")
 })
 
-app.listen(PORT, () =>{
-console.log(`server running on port: ${PORT}`)
+app.listen(PORT, () => {
+    console.log(`server running on port: ${PORT}`)
 })
-
