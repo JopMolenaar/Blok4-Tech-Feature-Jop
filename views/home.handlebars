@@ -15,6 +15,7 @@
     </nav>
 </header>
 <main>
+    {{! popups }}
     <section>
         <h2>You've got a <span>MATCH</span>!</h2>
     </section>
@@ -31,13 +32,14 @@
         </ul>
         <button>Open chat</button>
     </section>
+    {{! popups }}
+
     <nav>
         <ul class="contacts-list">
         </ul>
     </nav>
     <section class="chatPlace">
         <h2>No chat opened</h2>
-        {{!-- <h2>{{linkOne}}</h2> --}}
     </section>
 </main>
 
@@ -55,7 +57,7 @@
         <div>
             <button>Back</button>
             <img src="" alt="profile img" />
-            <h2>Name</h2>
+            <h2></h2>
         </div>
         <div>
             <!-- chat -->
@@ -63,8 +65,12 @@
         <div>
             <button>Smileys</button>
             <button>Language</button>
-            <input type="text" />
-            <button>Send</button>
+            {{!-- <form method="post" action="/"> --}}
+            <form action="/"></form>
+                <input type="text" name="message" />
+                <button type="submit" name="" id="" value="add" />Enter<button />
+            </form>
+
         </div>
     </div>
 </template>

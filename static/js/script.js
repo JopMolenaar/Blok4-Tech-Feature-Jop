@@ -116,16 +116,16 @@ switch (body.id) {
         })
 
         // popup animation
-        setTimeout(() => {
-            popup1.style.display = "flex"
-        }, 1000)
-        setTimeout(() => {
-            popup2.style.display = "flex"
-        }, 3000)
-        setTimeout(() => {
-            popup1.style.display = "none"
-            popup2.style.display = "none"
-        }, 8000)
+        // setTimeout(() => {
+        //     popup1.style.display = "flex"
+        // }, 1000)
+        // setTimeout(() => {
+        //     popup2.style.display = "flex"
+        // }, 3000)
+        // setTimeout(() => {
+        //     popup1.style.display = "none"
+        //     popup2.style.display = "none"
+        // }, 8000)
         break
     default:
         console.error("this id is not supported")
