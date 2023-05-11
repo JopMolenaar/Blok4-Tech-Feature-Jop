@@ -49,89 +49,6 @@ main {
   display: flex;
 }
 
-main > section:first-child,
-main > section:nth-child(2) {
-  display: none;
-  background-color: #ffffff;
-  border-radius: 20px;
-  border: #232323 solid 5px;
-  position: absolute;
-  top: 30vh;
-  left: 5vh;
-  bottom: 30vh;
-  right: 5vh;
-  max-width: 30em;
-  max-height: 30em;
-  margin-right: auto;
-  margin-left: auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: 500ms;
-  transition: 500ms;
-}
-
-main > section:first-child span {
-  color: red;
-}
-
-main > section:nth-child(2) {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 0;
-  overflow: hidden;
-}
-
-main > section:nth-child(2) section {
-  height: 70vh;
-  width: 100%;
-  overflow: hidden;
-}
-
-main > section:nth-child(2) section img {
-  width: 100%;
-}
-
-main > section:nth-child(2) ul {
-  width: 18em;
-  height: 7em;
-  margin: 0;
-  padding: 1em;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-}
-
-main > section:nth-child(2) ul li {
-  list-style: none;
-}
-
-main > section:nth-child(2) button {
-  all: unset;
-  position: absolute;
-  bottom: 1em;
-  right: 1em;
-  font-size: 1.3em;
-  padding: 0.3em;
-  border-radius: 3px;
-  border: #232323 solid 3px;
-}
-
-main > section:nth-child(2) button:hover {
-  background-color: #cecece;
-}
-
 main nav {
   border-right: #232323 solid 2px;
   width: 30vw;
@@ -199,7 +116,7 @@ main nav ul::-webkit-scrollbar {
   display: none;
 }
 
-main > section:nth-child(4) {
+main > section:nth-child(2) {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -212,7 +129,7 @@ main > section:nth-child(4) {
           align-items: center;
 }
 
-main > section:nth-child(4) > div {
+main > section:nth-child(2) > div {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -224,7 +141,7 @@ main > section:nth-child(4) > div {
           flex-direction: column;
 }
 
-main > section:nth-child(4) > div > div:nth-child(1) {
+main > section:nth-child(2) > div > div:nth-child(1) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -239,12 +156,12 @@ main > section:nth-child(4) > div > div:nth-child(1) {
   padding: 0.5em;
 }
 
-main > section:nth-child(4) > div > div:nth-child(1) > img {
+main > section:nth-child(2) > div > div:nth-child(1) > img {
   width: auto;
   height: 100%;
 }
 
-main > section:nth-child(4) > div > div:nth-child(2) {
+main > section:nth-child(2) > div > div:nth-child(2) {
   height: 85%;
   overflow: auto;
   padding: 0;
@@ -254,13 +171,12 @@ main > section:nth-child(4) > div > div:nth-child(2) {
           flex-direction: column;
 }
 
-main > section:nth-child(4) > div > div:nth-child(2) div {
+main > section:nth-child(2) > div > div:nth-child(2) div {
   width: 95%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   font-size: 1.5em;
-  margin: 0.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -270,8 +186,10 @@ main > section:nth-child(4) > div > div:nth-child(2) div {
           flex-direction: row;
 }
 
-main > section:nth-child(4) > div > div:nth-child(2) div p {
+main > section:nth-child(2) > div > div:nth-child(2) div p {
   border-radius: 10px;
+  margin: 0;
+  margin-bottom: 0.8em;
   padding: 0.5em;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -283,7 +201,7 @@ main > section:nth-child(4) > div > div:nth-child(2) div p {
   color: #eeeeee;
 }
 
-main > section:nth-child(4) > div div:nth-child(3) {
+main > section:nth-child(2) > div div:nth-child(3) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -294,7 +212,7 @@ main > section:nth-child(4) > div div:nth-child(3) {
           flex-direction: row;
 }
 
-main > section:nth-child(4) > div div:nth-child(3) form {
+main > section:nth-child(2) > div div:nth-child(3) form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -304,7 +222,7 @@ main > section:nth-child(4) > div div:nth-child(3) form {
           flex-direction: row;
 }
 
-main > section:nth-child(4) > div div:nth-child(3) input {
+main > section:nth-child(2) > div div:nth-child(3) input {
   height: 5em;
   width: 100%;
   height: 100%;

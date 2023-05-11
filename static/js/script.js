@@ -1,10 +1,10 @@
 // const ipAddress = require("../../server.js")
 
 // console.log(ipAddress);
-const showChatButton = document.querySelector("main section:nth-child(2) button")
+// const showChatButton = document.querySelector("main section:nth-child(2) button")
 const body = document.querySelector("body")
-const popup1 = document.querySelector("main section:first-child")
-const popup2 = document.querySelector("main section:nth-child(2)")
+// const popup1 = document.querySelector("main section:first-child")
+// const popup2 = document.querySelector("main section:nth-child(2)")
 
 const chatPlace = document.querySelector(".chatPlace")
 const chatTemplate = document.querySelector(".chatTemplate")
@@ -50,7 +50,7 @@ const getChatFromContact = () => {
         //duplicate
         const chatHTML = chatTemplate.content.firstElementChild.cloneNode(true)
         chatHTML.id = `${list.id}` * `${yourId}`
-        console.log(chatHTML.id)
+        // console.log(chatHTML.id)
         chatPlace.appendChild(chatHTML)
         chatHTML.style.display = "none"
 
@@ -66,14 +66,14 @@ const getChatFromContact = () => {
 
         list.addEventListener("click", () => {
             // open chat
-            // console.log(chatHTML.id, `${list.id}`*`${yourId}`, `${yourId}`*`${list.id}`);
+            // console.log(chatHTML.id, `${list.id}` * `${yourId}`, `${yourId}` * `${list.id}`)
             if (chatHTML.id == `${list.id}` * `${yourId}`) {
                 const chats = document.querySelectorAll("main .chatPlace > div")
-                const noChatOpend = chatPlace.querySelector("h2")
+                // const noChatOpend = chatPlace.querySelector("h2")
                 chats.forEach((chat) => {
                     chat.style.display = "none"
                 })
-                noChatOpend.style.display = "none"
+                // noChatOpend.style.display = "none"
                 chatHTML.style.display = "flex"
             }
             // get chat from database?
@@ -110,22 +110,6 @@ switch (body.id) {
         duplicateTemplate()
         getChatFromContact()
         sendMassage()
-        showChatButton.addEventListener("click", () => {
-            popup1.style.display = "none"
-            popup2.style.display = "none"
-        })
-
-        // popup animation
-        // setTimeout(() => {
-        //     popup1.style.display = "flex"
-        // }, 1000)
-        // setTimeout(() => {
-        //     popup2.style.display = "flex"
-        // }, 3000)
-        // setTimeout(() => {
-        //     popup1.style.display = "none"
-        //     popup2.style.display = "none"
-        // }, 8000)
         break
     default:
         console.error("this id is not supported")
@@ -162,3 +146,20 @@ switch (body.id) {
 //         default: false
 //     }
 // }));
+
+// showChatButton.addEventListener("click", () => {
+//     popup1.style.display = "none"
+//     popup2.style.display = "none"
+// })
+
+// popup animation
+// setTimeout(() => {
+//     popup1.style.display = "flex"
+// }, 1000)
+// setTimeout(() => {
+//     popup2.style.display = "flex"
+// }, 3000)
+// setTimeout(() => {
+//     popup1.style.display = "none"
+//     popup2.style.display = "none"
+// }, 8000)
