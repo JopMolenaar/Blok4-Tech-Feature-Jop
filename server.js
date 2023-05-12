@@ -6,6 +6,7 @@ const client = new MongoClient(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
+client.connect()
 const slug = require("slug")
 const multer = require("multer")
 const app = express()
@@ -31,7 +32,6 @@ app.use(express.urlencoded({ extended: true }))
 
 const run = async () => {
     try {
-        await client.connect()
         const database = client.db("test")
         const messages = database.collection("users")
         const users = [
@@ -45,11 +45,12 @@ const run = async () => {
     } catch (err) {
         console.log(err)
     } finally {
-        await client.close()
+        console.log("finally")
     }
 }
-run().catch(console.dir)
+// run().catch(console.dir)
 
+// home page
 const testLink = "Swipe area"
 app.get("/", (req, res) => {
     const ipAddress = req.socket.remoteAddress
@@ -60,33 +61,21 @@ app.get("/", (req, res) => {
     res.render("home", { linkOne: testLink })
 })
 
+// test page db
 app.get("/add-message", async (req, res) => {
     try {
-        await client.connect()
         const database = client.db("test")
         const userCollection = database.collection("users")
         console.log("getting users")
 
-        // const results = await new Promise((resolve, reject) => {
-        //     userCollection.find().toArray((err, results) => {
-        //         if (err) reject(err)
-        //         else resolve(results)
-        //     })
-        // })
-        // console.log("got search")
-        // res.send(results)
-
-        userCollection.find().toArray((err, results) => {
-            // find({"Jop": { $regex: req.query.inputCountry }})
-            console.log("searching")
-            res.send(results)
-            // .render("add-message", { result: results })
-        })
-        console.log("hello, does it do something pls?")
+        const getUser = await userCollection.find().toArray()
+        // { name: 1, lastname: 0, age: 0 }
+        console.log("results van getuser;", getUser)
+        res.render("add-message", { result: getUser })
     } catch (err) {
         console.log(err)
     } finally {
-        await client.close()
+        console.log("finally")
     }
 })
 
