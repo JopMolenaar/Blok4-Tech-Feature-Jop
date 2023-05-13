@@ -50,37 +50,40 @@ app.get("/", async (req, res) => {
     }
 })
 
-// get id's form every user
-let idInArray = []
-let allIds = []
-const getID = async () => {
-    try {
-        const database = client.db("test")
-        const userCollection = database.collection("users")
-        console.log("getting id's")
-        const getId = await userCollection.find().toArray()
-        console.log("results van getID;", getId)
-        idInArray.push(getId)
-        idInArray.forEach((idtje) => {
-            idtje.forEach((id) => {
-                idVar = `${id._id}`
-                const onlyNmbr = idVar.replace("new ObjectId", "")
-                allIds.push(onlyNmbr)
-            })
-            console.log("all id array", allIds)
-            // getSpecificUserPage()
-        })
-    } catch (err) {
-        console.log(err)
-    } finally {
-        console.log("finally getID")
-    }
-}
+// // get id's form every user
+// let idInArray = []
+// let allIds = []
+// const getID = async () => {
+//     try {
+//         const database = client.db("test")
+//         const userCollection = database.collection("users")
+//         console.log("getting id's")
+//         const getId = await userCollection.find().toArray()
+//         console.log("results van getID;", getId)
+//         idInArray.push(getId)
+//         idInArray.forEach((idtje) => {
+//             idtje.forEach((id) => {
+//                 idVar = `${id._id}`
+//                 const onlyNmbr = idVar.replace("new ObjectId", "")
+//                 if (allIds.includes(onlyNmbr) === false) {
+//                     allIds.push(onlyNmbr)
+//                 }
+//             })
+//             console.log("all id array", allIds)
+//             // getSpecificUserPage()
+//         })
+//     } catch (err) {
+//         console.log(err)
+//     } finally {
+//         console.log("finally getID")
+//     }
+// }
 
 // get userPage form /id url
 //search that users contacts
 // const getSpecificUserPage = async () => {
 //     try {
+let allIDsHopefully
 let testBruh = [
     "645f75568e4b512f0a2f3e18",
     "645f75568e4b512f0a2f3e19",
@@ -89,17 +92,28 @@ let testBruh = [
     "645f75568e4b512f0a2f3e1c",
     "645f75568e4b512f0a2f3e1d",
 ]
+const getID = require("./getId.js")
+getID().then((allIDsHopefully = getID()))
+console.log("hello?", getID())
+// its promising and pending
+
+// allIDsHopefully = await getID()
+
+// getID().then(function (result) {
+//     allIDsHopefully = getID()
+//     console.log("result id's", result)
+// })
 testBruh.forEach((id) => {
     // allIds.forEach((id) => {
-    console.log("its empty", allIds)
+    // console.log("its empty", allIds)
     console.log("hard coded", id)
     app.get(`/${id}`, async (req, res) => {
-        console.log("here is it full", allIds)
+        console.log("here is it full", getID())
+        console.log("here is it full????", allIDsHopefully)
         try {
             const database = client.db("test")
             const userCollection = database.collection("users")
             console.log("getting users")
-            // const getUser = await userCollection.find({ _id: ObjectId(`${id}`) }).toArray()
             const getUser = await userCollection.find(new ObjectId(`${id}`)).toArray()
             console.log("results van getuser;", getUser)
             res.render("home", { result: getUser })
@@ -125,7 +139,7 @@ app.get("/about", (req, res) => {
 app.get("/login", async (req, res) => {
     try {
         // can be coded in less lines
-        getID()
+        // getID()
         //
 
         const database = client.db("test")
