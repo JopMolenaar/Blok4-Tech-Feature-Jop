@@ -4,7 +4,7 @@
         {{#each result}}
             <li>
                 {{! to url that is specific for every user }}
-                <a href="/">
+                <a href="/{{this._id}}">
                     <img src="{{this.pfPicture}}" alt="{{this.name}}'s profile picuture" />
                     <h2>{{this.name}} {{this.lastname}}</h2>
                 </a>
