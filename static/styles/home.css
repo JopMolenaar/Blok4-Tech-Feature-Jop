@@ -182,12 +182,15 @@ main > .chatPlace > div > div:nth-child(2) div {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 main > .chatPlace > div > div:nth-child(2) div p {
   border-radius: 10px;
   margin: 0;
-  margin-bottom: 0.8em;
+  margin-top: 0.8em;
   padding: 0.5em;
   width: -webkit-fit-content;
   width: -moz-fit-content;
