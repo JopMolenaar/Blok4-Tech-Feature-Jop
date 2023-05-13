@@ -17,53 +17,43 @@
 <main>
     <nav>
         <ul class="contacts-list">
+            {{#each result}}
+            <li>
+                <a href="#">
+                    <img src="{{this.pfPicture}}" alt="Profile picture" />
+                    <p>{{this.name}} {{this.lastname}}</p>
+                </a>
+            </li>
+            {{/each}}
         </ul>
     </nav>
     <section class="chatPlace">
+        {{#each result}}
+        <div id="{{this.name}}">
+            <div>
+                <button>Back</button>
+                <img src="{{this.pfPicture}}" alt="Profile picture" />
+                <h2>{{this.name}} {{this.lastname}}</h2>
+            </div>
+            <div>
+                {{!-- gets data from database with all the messages. Depends on who is asking --}}
+                {{!-- chat --}}
+            </div>
+            <div>
+                <button>Smileys</button>
+                <button>Language</button>
+                <form action="/" method="post"></form>
+                    <input type="text" name="message" />
+                    <input type="submit" value="Add" />
+                    {{!-- needs to be specific for every user --}}
+                </form>
+            </div>
+        </div>
+        {{/each}}
     </section>
 </main>
 
-{{!-- for each contact --}}
-<template class="listTemplate">
-    <li>
-        <a href="#">
-            <img src="" alt="Profile picture" />
-            <p>{{username}}</p>
-        </a>
-    </li>
-</template>
-
-
-{{!-- for each contact --}}
-<template class="chatTemplate">
-    <div>
-        <div>
-            <button>Back</button>
-            <img src="" alt="profile img" />
-            <h2>{{username}}</h2>
-        </div>
-        <div>
-            {{!-- gets data from database with all the messages. Depends on who is asking --}}
-            {{!-- chat --}}
-        </div>
-        <div>
-            <button>Smileys</button>
-            <button>Language</button>
-            {{!-- <form method="post" action="/"> --}}
-            <form action="/" method="post"></form>
-                <input type="text" name="message" />
-                <input type="submit" value="Add" />
-            </form>
-
-        </div>
-    </div>
-</template>
-{{!-- {{/layout}} --}}
-
-
-<script src="js/addPeople.js"></script>
 <script src="js/script.js"></script>
-
 
     {{!-- {{! popups }}
     <section>

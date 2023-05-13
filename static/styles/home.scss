@@ -36,70 +36,6 @@ header {
 main {
     height: calc(100vh - 4em);
     display: flex;
-    // > section:first-child,
-    // > section:nth-child(2) {
-    //     display: none;
-    //     background-color: $color-parel-white;
-    //     border-radius: 20px;
-    //     border: $color-black solid 5px;
-    //     position: absolute;
-    //     top: 30vh;
-    //     left: 5vh;
-    //     bottom: 30vh;
-    //     right: 5vh;
-    //     max-width: 30em;
-    //     max-height: 30em;
-    //     margin-right: auto;
-    //     margin-left: auto;
-    //     justify-content: center;
-    //     align-items: center;
-    //     transition: 500ms;
-    // }
-    // > section:first-child {
-    //     span {
-    //         color: $color-span;
-    //     }
-    // }
-    // > section:nth-child(2) {
-    //     align-items: start;
-    //     flex-direction: column;
-    //     padding: 0;
-    //     overflow: hidden;
-    //     section {
-    //         height: 70vh;
-    //         width: 100%;
-    //         overflow: hidden;
-    //         img {
-    //             width: 100%;
-    //         }
-    //     }
-
-    //     ul {
-    //         width: 18em;
-    //         height: 7em;
-    //         margin: 0;
-    //         padding: 1em;
-    //         display: grid;
-    //         grid-template-columns: 1fr 1fr;
-    //         grid-template-rows: 1fr 1fr;
-    //         li {
-    //             list-style: none;
-    //         }
-    //     }
-    //     button {
-    //         all: unset;
-    //         position: absolute;
-    //         bottom: 1em;
-    //         right: 1em;
-    //         font-size: 1.3em;
-    //         padding: 0.3em;
-    //         border-radius: 3px;
-    //         border: $color-black solid 3px;
-    //     }
-    //     button:hover {
-    //         background-color: $color-hover-a;
-    //     }
-    // }
     nav {
         border-right: $color-black solid 2px;
         width: 30vw;
@@ -143,7 +79,7 @@ main {
             display: none;
         }
     }
-    > section:nth-child(2) {
+    > .chatPlace {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -151,7 +87,7 @@ main {
         > div {
             width: 100%;
             height: 100%;
-            display: flex;
+            display: none;
             flex-direction: column;
             > div:nth-child(1) {
                 display: flex;
