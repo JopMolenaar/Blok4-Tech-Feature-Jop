@@ -67,9 +67,11 @@ app.get("/add-message", async (req, res) => {
         const database = client.db("test")
         const userCollection = database.collection("users")
         console.log("getting users")
-
-        const getUser = await userCollection.find().toArray()
-        // { name: 1, lastname: 0, age: 0 }
+        const projection = {
+            _id: 0,
+            name: 1,
+        }
+        const getUser = await userCollection.find().project(projection).toArray()
         console.log("results van getuser;", getUser)
         res.render("add-message", { result: getUser })
     } catch (err) {
