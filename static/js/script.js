@@ -5,23 +5,18 @@ const body = document.querySelector("body")
 const chatPlace = document.querySelector(".chatPlace")
 const contactsList = document.querySelector(".contacts-list")
 
-const yourId = 23892
-// get your id from the database
-
 const getChatFromContact = () => {
     const contactListLink = document.querySelectorAll("main nav a")
     contactListLink.forEach((list) => {
         list.addEventListener("click", () => {
             // open chat
-            if (chatHTML.id == `${list.id}` * `${yourId}`) {
-                const chats = document.querySelectorAll("main .chatPlace > div")
-                // const noChatOpend = chatPlace.querySelector("h2")
-                chats.forEach((chat) => {
-                    chat.style.display = "none"
-                })
-                // noChatOpend.style.display = "none"
-                chatHTML.style.display = "flex"
-            }
+            const chats = document.querySelectorAll("main .chatPlace > div")
+            chats.forEach((chat) => {
+                chat.style.display = "none"
+                if (list.classList == chat.id) {
+                    chat.style.display = "flex"
+                }
+            })
             // get chat from database?
         })
     })
@@ -29,19 +24,24 @@ const getChatFromContact = () => {
 
 const sendMessage = () => {
     const textField = chatPlace.querySelectorAll("div div:nth-child(3) input")
-    const massageField = chatPlace.querySelector(" div div:nth-child(2)")
+    const messageFields = chatPlace.querySelectorAll("div > div:nth-child(2)")
     textField.forEach((field) => {
         field.addEventListener("change", (e) => {
             const chatRow = document.createElement("div")
             const chat = document.createElement("p")
-            massageField.appendChild(chatRow)
-            chatRow.appendChild(chat)
-            chat.textContent = e.target.value
-            if (yourId === 23892) {
-                chatRow.style.justifyContent = "flex-end"
-            } else {
-                chatRow.style.justifyContent = "flex-start"
-            }
+            messageFields.forEach((messageField) => {
+                const parent = field.parentElement
+                if (messageField.parentElement === parent.parentElement) {
+                    messageField.appendChild(chatRow)
+                    chatRow.appendChild(chat)
+                    chat.textContent = e.target.value
+                }
+            })
+            // if (yourId === 23892) {
+            //     chatRow.style.justifyContent = "flex-end"
+            // } else {
+            //     chatRow.style.justifyContent = "flex-start"
+            // }
             if (field.value != "") {
                 field.value = ""
             }
@@ -52,7 +52,7 @@ const sendMessage = () => {
 switch (body.id) {
     case "home":
     case "mainHandlebars":
-        // getChatFromContact()
+        getChatFromContact()
         sendMessage()
         break
     default:

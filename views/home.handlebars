@@ -19,7 +19,7 @@
         <ul class="contacts-list">
             {{#each result}}
             <li>
-                <a href="#">
+                <a href="#" class="{{this.name}}">
                     <img src="{{this.pfPicture}}" alt="Profile picture" />
                     <p>{{this.name}} {{this.lastname}}</p>
                 </a>
@@ -39,7 +39,7 @@
                 {{!-- gets data from database with all the messages. Depends on who is asking --}}
                 {{!-- chat --}}
             </div>
-            <div>
+            <div class="{{this.name}}">
                 <button>Smileys</button>
                 <button>Language</button>
                 <form action="/" method="post"></form>
