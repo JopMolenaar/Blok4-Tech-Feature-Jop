@@ -1,0 +1,14 @@
+<main id="chooseUser">
+    <h1>Choose your user:</h1>
+    <ul>
+        {{#each result}}
+            <li>
+                {{! to url that is specific for every user }}
+                <a href="/">
+                    <img src="{{this.pfPicture}}" alt="{{this.name}}'s profile picuture" />
+                    <h2>{{this.name}} {{this.lastname}}</h2>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</main>

@@ -51,8 +51,19 @@ app.get("/about", (req, res) => {
     res.send(`About ${name()}`)
 })
 
-app.get("/login", (req, res) => {
-    res.send(`Log in ${name()}`)
+app.get("/login", async (req, res) => {
+    try {
+        const database = client.db("test")
+        const userCollection = database.collection("users")
+        console.log("getting users for login")
+        const getUser = await userCollection.find().toArray()
+        console.log("results van getuser;", getUser)
+        res.render("choose", { result: getUser })
+    } catch (err) {
+        console.log(err)
+    } finally {
+        console.log("finally")
+    }
 })
 
 app.get("*", (req, res) => {

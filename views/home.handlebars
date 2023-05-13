@@ -20,7 +20,7 @@
             {{#each result}}
             <li>
                 <a href="#" class="{{this.name}}">
-                    <img src="{{this.pfPicture}}" alt="Profile picture" />
+                    <img src="{{this.pfPicture}}" alt="{{this.name}}'s profile picuture" />
                     <p>{{this.name}} {{this.lastname}}</p>
                 </a>
             </li>
@@ -32,7 +32,7 @@
         <div id="{{this.name}}">
             <div>
                 <button>Back</button>
-                <img src="{{this.pfPicture}}" alt="Profile picture" />
+                <img src="{{this.pfPicture}}" alt="{{this.name}}'s profile picuture" />
                 <h2>{{this.name}} {{this.lastname}}</h2>
             </div>
             <div>
