@@ -15,8 +15,6 @@ const path = require("path")
 const mongoose = require("mongoose")
 const { engine } = require("express-handlebars")
 const ObjectId = require("mongodb").ObjectId
-// var id = req.params.gonderi_id
-// var o_id = new ObjectId(id)
 
 app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
@@ -35,12 +33,7 @@ app.get("/", async (req, res) => {
         const database = client.db("test")
         const userCollection = database.collection("users")
         console.log("getting users")
-        // const projection = {
-        //     _id: 0,
-        //     name: 1,
-        // }
         const getUser = await userCollection.find().toArray()
-        // .project(projection)
         console.log("results van getuser;", getUser)
         res.render("home", { linkOne: testLink, result: getUser })
     } catch (err) {
@@ -50,109 +43,40 @@ app.get("/", async (req, res) => {
     }
 })
 
-// // get id's form every user
-// let idInArray = []
-// let allIds = []
-// const getID = async () => {
-//     try {
-//         const database = client.db("test")
-//         const userCollection = database.collection("users")
-//         console.log("getting id's")
-//         const getId = await userCollection.find().toArray()
-//         console.log("results van getID;", getId)
-//         idInArray.push(getId)
-//         idInArray.forEach((idtje) => {
-//             idtje.forEach((id) => {
-//                 idVar = `${id._id}`
-//                 const onlyNmbr = idVar.replace("new ObjectId", "")
-//                 if (allIds.includes(onlyNmbr) === false) {
-//                     allIds.push(onlyNmbr)
-//                 }
-//             })
-//             console.log("all id array", allIds)
-//             // getSpecificUserPage()
-//         })
-//     } catch (err) {
-//         console.log(err)
-//     } finally {
-//         console.log("finally getID")
-//     }
-// }
-
-// get userPage form /id url
-//search that users contacts
-// const getSpecificUserPage = async () => {
-//     try {
-let allIDsHopefully
-let testBruh = [
-    "645f75568e4b512f0a2f3e18",
-    "645f75568e4b512f0a2f3e19",
-    "645f75568e4b512f0a2f3e1a",
-    "645f75568e4b512f0a2f3e1b",
-    "645f75568e4b512f0a2f3e1c",
-    "645f75568e4b512f0a2f3e1d",
-]
-const getID = require("./getId.js")
-getID().then((allIDsHopefully = getID()))
-console.log("hello?", getID())
-// its promising and pending
-
-// allIDsHopefully = await getID()
-
-// getID().then(function (result) {
-//     allIDsHopefully = getID()
-//     console.log("result id's", result)
-// })
-testBruh.forEach((id) => {
-    // allIds.forEach((id) => {
-    // console.log("its empty", allIds)
-    console.log("hard coded", id)
-    app.get(`/${id}`, async (req, res) => {
-        console.log("here is it full", getID())
-        console.log("here is it full????", allIDsHopefully)
-        try {
-            const database = client.db("test")
-            const userCollection = database.collection("users")
-            console.log("getting users")
-            const getUser = await userCollection.find(new ObjectId(`${id}`)).toArray()
-            console.log("results van getuser;", getUser)
-            res.render("home", { result: getUser })
-        } catch (err) {
-            console.log(err)
-        } finally {
-            console.log("finally getSpecificUserPage")
-        }
-    })
-})
-//     } catch (err) {
-//         console.log(err)
-//     } finally {
-//         console.log("finally async")
-//     }
-// }
-
-app.get("/about", (req, res) => {
-    res.send(`About ${name()}`)
-})
-
 //login page
 app.get("/login", async (req, res) => {
     try {
-        // can be coded in less lines
-        // getID()
-        //
-
         const database = client.db("test")
         const userCollection = database.collection("users")
         console.log("getting users for login")
         const getUser = await userCollection.find().toArray()
         console.log("results van getuser for login;", getUser)
+
         res.render("choose", { result: getUser })
     } catch (err) {
         console.log(err)
     } finally {
         console.log("finally getLoginPage")
     }
+})
+
+app.get(`/:id`, async (req, res) => {
+    try {
+        const database = client.db("test")
+        const userCollection = database.collection("users")
+        console.log("getting users")
+        const getUser = await userCollection.find(new ObjectId(req.params.id)).toArray()
+        console.log("results van getuser;", getUser)
+        res.render("home", { result: getUser })
+    } catch (err) {
+        console.log(err)
+    } finally {
+        console.log("finally getSpecificUserPage")
+    }
+})
+
+app.get("/about", (req, res) => {
+    res.send(`About ${name()}`)
 })
 
 app.get("*", (req, res) => {

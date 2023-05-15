@@ -25,12 +25,78 @@ const run = async () => {
         const database = client.db("test")
         const messages = database.collection("users")
         const users = [
-            { name: "Joe", lastname: "Roger", pfPicture: "images/pfpicture.png" },
-            { name: "Frank", lastname: "Skinson", pfPicture: "images/pfpicture.png" },
-            { name: "Lizz", lastname: "Balbla", pfPicture: "images/pfpicture.png" },
-            { name: "John", lastname: "Paddington", pfPicture: "images/pfpicture.png" },
-            { name: "Meteo", lastname: "Stars", pfPicture: "images/pfpicture.png" },
-            { name: "Bob", lastname: "Bobbert", pfPicture: "images/pfpicture.png" },
+            {
+                name: "Joe",
+                lastname: "Roger",
+                pfPicture: "images/pfpicture.png",
+                friends: [
+                    "645f75568e4b512f0a2f3e19",
+                    "645f75568e4b512f0a2f3e1a",
+                    "645f75568e4b512f0a2f3e1b",
+                    "645f75568e4b512f0a2f3e1c",
+                    "645f75568e4b512f0a2f3e1d",
+                ],
+            },
+            {
+                name: "Frank",
+                lastname: "Skinson",
+                pfPicture: "images/pfpicture.png",
+                friends: [
+                    "645f75568e4b512f0a2f3e18",
+                    "645f75568e4b512f0a2f3e1a",
+                    "645f75568e4b512f0a2f3e1b",
+                    "645f75568e4b512f0a2f3e1c",
+                    "645f75568e4b512f0a2f3e1d",
+                ],
+            },
+            {
+                name: "Lizz",
+                lastname: "Balbla",
+                pfPicture: "images/pfpicture.png",
+                friends: [
+                    "645f75568e4b512f0a2f3e18",
+                    "645f75568e4b512f0a2f3e19",
+                    "645f75568e4b512f0a2f3e1b",
+                    "645f75568e4b512f0a2f3e1c",
+                    "645f75568e4b512f0a2f3e1d",
+                ],
+            },
+            {
+                name: "John",
+                lastname: "Paddington",
+                pfPicture: "images/pfpicture.png",
+                friends: [
+                    "645f75568e4b512f0a2f3e18",
+                    "645f75568e4b512f0a2f3e19",
+                    "645f75568e4b512f0a2f3e1a",
+                    "645f75568e4b512f0a2f3e1c",
+                    "645f75568e4b512f0a2f3e1d",
+                ],
+            },
+            {
+                name: "Meteo",
+                lastname: "Stars",
+                pfPicture: "images/pfpicture.png",
+                friends: [
+                    "645f75568e4b512f0a2f3e18",
+                    "645f75568e4b512f0a2f3e19",
+                    "645f75568e4b512f0a2f3e1a",
+                    "645f75568e4b512f0a2f3e1b",
+                    "645f75568e4b512f0a2f3e1d",
+                ],
+            },
+            {
+                name: "Bob",
+                lastname: "Bobbert",
+                pfPicture: "images/pfpicture.png",
+                friends: [
+                    "645f75568e4b512f0a2f3e18",
+                    "645f75568e4b512f0a2f3e19",
+                    "645f75568e4b512f0a2f3e1a",
+                    "645f75568e4b512f0a2f3e1b",
+                    "645f75568e4b512f0a2f3e1c",
+                ],
+            },
         ]
         const addUser = await messages.insertMany(users)
         console.log(addUser)
