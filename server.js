@@ -60,14 +60,22 @@ app.get("/login", async (req, res) => {
     }
 })
 
+const getDogPics = async () => {
+    const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
+    return await res.json()
+}
+
 app.get(`/:id`, async (req, res) => {
     try {
+        const getPfPics = await getDogPics()
+        console.log("getting dog pictures")
         const database = client.db("test")
         const userCollection = database.collection("users")
         console.log("getting users")
         const getUser = await userCollection.find(new ObjectId(req.params.id)).toArray()
         console.log("results van getuser;", getUser)
-        res.render("home", { result: getUser })
+
+        res.render("home", { result: getUser, pfPictures: getPfPics })
     } catch (err) {
         console.log(err)
     } finally {
