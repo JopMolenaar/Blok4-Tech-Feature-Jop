@@ -3,7 +3,6 @@ body {
   padding: 0;
   position: relative;
   min-height: 100%;
-  overflow-x: hidden;
   background-color: #eeeeee;
 }
 
@@ -25,7 +24,8 @@ a {
   transition: all 0.3s ease;
 }
 
-button, summary {
+button,
+summary {
   cursor: pointer;
 }
 
@@ -33,19 +33,4 @@ img {
   width: 100px;
   height: auto;
 }
-
-
-#page-not-found {
-  height: 100vh;
-  width: 100vw;
-  background-color: antiquewhite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /*# sourceMappingURL=style.css.map */
-
-
-
-

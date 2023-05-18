@@ -1,4 +1,4 @@
-const name = require("./static/js/name.js")
+// const name = require("./static/js/name.js")
 const express = require("express")
 const { MongoClient } = require("mongodb")
 const { MONGO_URI } = require("/Users/jopmolenaar/Documents/Blok4-Tech-Feature-Jop/.env")
@@ -21,70 +21,111 @@ app.set("view engine", "handlebars")
 app.set("views", "./views")
 app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
-
+const upload = multer({ dest: "static/upload/" })
 // home page
-const testLink = "Swipe area"
-app.get("/", async (req, res) => {
-    const ipAddress = req.socket.remoteAddress
-    module.exports = ipAddress
-    console.log(ipAddress)
-    // res.send(ipAddress);
-    try {
-        const database = client.db("test")
-        const userCollection = database.collection("users")
-        console.log("getting users")
-        const getUser = await userCollection.find().toArray()
-        console.log("results van getuser;", getUser)
-        res.render("home", { linkOne: testLink, result: getUser })
-    } catch (err) {
-        console.log(err)
-    } finally {
-        console.log("finally get home")
-    }
-})
+// const testLink = "Swipe area"
+// app.get("/", async (req, res) => {
+//     const ipAddress = req.socket.remoteAddress
+//     module.exports = ipAddress
+//     console.log(ipAddress)
+//     // res.send(ipAddress);
+//     try {
+//         const database = client.db("test")
+//         const userCollection = database.collection("users")
+//         console.log("getting users")
+//         const getUser = await userCollection.find().toArray()
+//         console.log("results van getuser;", getUser)
+//         res.render("home", { linkOne: testLink, result: getUser })
+//     } catch (err) {
+//         console.log(err)
+//     } finally {
+//         console.log("finally get home")
+//     }
+// })
 
 //login page
-app.get("/login", async (req, res) => {
-    try {
-        const database = client.db("test")
-        const userCollection = database.collection("users")
-        console.log("getting users for login")
-        const getUser = await userCollection.find().toArray()
-        console.log("results van getuser for login;", getUser)
+// app.get("/login", async (req, res) => {
+//     try {
+//         const database = client.db("test")
+//         const userCollection = database.collection("users")
+//         console.log("getting users for login")
+//         const getUser = await userCollection.find().toArray()
+//         console.log("results van getuser for login;", getUser)
 
-        res.render("choose", { result: getUser })
-    } catch (err) {
-        console.log(err)
-    } finally {
-        console.log("finally getLoginPage")
-    }
-})
+//         res.render("choose", { result: getUser })
+//     } catch (err) {
+//         console.log(err)
+//     } finally {
+//         console.log("finally getLoginPage")
+//     }
+// })
 
 const getDogPics = async () => {
     const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
     return await res.json()
 }
 
-app.get(`/:id`, async (req, res) => {
-    try {
-        const getPfPics = await getDogPics()
-        console.log("getting dog pictures")
-        const database = client.db("test")
-        const userCollection = database.collection("users")
-        console.log("getting users")
-        const getUser = await userCollection.find(new ObjectId(req.params.id)).toArray()
-        console.log("results van getuser;", getUser)
+// app.get(`/:id`, async (req, res) => {
+//     try {
+//         // const getPfPics = await getDogPics()
+//         console.log("getting dog pictures")
+//         const database = client.db("test")
+//         const userCollection = database.collection("users")
+//         console.log("getting users")
+//         const getUser = await userCollection.find(new ObjectId(req.params.id)).toArray()
+//         console.log("results van getuser;", getUser)
+//         // pfPictures: getPfPics
+//         res.render("home", { result: getUser })
+//     } catch (err) {
+//         console.log(err)
+//     } finally {
+//         console.log("finally getSpecificUserPage")
+//     }
+// })
 
-        res.render("home", { result: getUser, pfPictures: getPfPics })
+app.get("/locations", async (req, res) => {
+    //slurp de database leeg voor locaties
+    try {
+        const database = client.db("db_locations")
+        const userCollection = database.collection("locations")
+        console.log("getting locations")
+        const getLocations = await userCollection.find().toArray()
+        console.log("locations:", getLocations)
+        res.render("locations", { result: getLocations })
     } catch (err) {
         console.log(err)
     } finally {
-        console.log("finally getSpecificUserPage")
+        console.log("finally getLocations")
     }
 })
 
-app.get("/about", (req, res) => {
-    res.send(`About ${name()}`)
+const add = async (req, res) => {
+    try {
+        let data = []
+        const database = client.db("db_locations")
+        const dbLocations = database.collection("locations")
+        data.push({
+            country: req.body.country,
+            city: req.body.city,
+            adress: req.body.adress,
+            img: req.file ? req.file.filename : null,
+            discription: req.body.discription,
+            setup: req.body.setup,
+        })
+        console.log("data", data[0])
+
+        const addLocations = await dbLocations.insertOne(data[0])
+        console.log("added:", addLocations)
+        res.redirect("/locations")
+    } catch (error) {
+    } finally {
+        console.log("added location")
+    }
+}
+app.post("/add-locations", upload.single("img"), add)
+
+app.get("/locations/add", async (req, res) => {
+    res.render("addLocations")
 })
 
 app.get("*", (req, res) => {

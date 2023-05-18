@@ -1,0 +1,29 @@
+<header>
+    <img src="" alt="Calisthenics website logo" />
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Matches</a>
+            </li>
+            <li>
+                <a href="#">Account</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="locations">
+    <h1>Calisthenics locations</h1>
+    <a href="/locations/add">Add location</a>
+    <ul>
+        {{#each result}}
+            <li>
+                <img src="" alt="Picture of the place" />
+                <p>{{this.country}}</p>
+                <p>{{this.city}}</p>
+                <p>{{this.adress}}</p>
+                <p>{{this.discription}}</p>
+                <p>{{this.setup}}</p>
+            </li>
+        {{/each}}
+    </ul>
+</main>

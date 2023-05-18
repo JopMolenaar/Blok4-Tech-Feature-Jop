@@ -1,0 +1,59 @@
+<header>
+    <img src="" alt="Calisthenics website logo" />
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Matches</a>
+            </li>
+            <li>
+                <a href="#">Account</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="addLocations">
+    <section>
+        <h1>Add your found location</h1>
+        <a href="/locations">back</a>
+    </section>
+
+    <form action="/add-locations" method="post">
+        <label>
+            Country:
+            <input name="country" type="text" />
+        </label>
+        <label>
+            City:
+            <input name="city" type="text" />
+        </label>
+        <label>
+            Adress:
+            <input name="adress" type="text" />
+        </label>
+        <label>
+            Picture of the location:
+            <input name="img" type="file" accept="image" />
+        </label>
+        <label>
+            Discription:
+            <textarea name="discription" cols="30" rows="5"></textarea>
+        </label>
+        <label>
+            Setup:
+            <input name="setup" type="text" />
+        </label>
+        <input type="submit" value="add" />
+    </form>
+</main>
+
+{{!-- <ul>
+        {{#each result}}
+            <li>
+                {{! to url that is specific for every user }}
+                <a href="/{{this._id}}">
+                    <img src="{{this.pfPicture}}" alt="{{this.name}}'s profile picuture" />
+                    <h2>{{this.name}} {{this.lastname}}</h2>
+                </a>
+            </li>
+        {{/each}}
+    </ul> --}}
