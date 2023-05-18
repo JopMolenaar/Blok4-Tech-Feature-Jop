@@ -104,13 +104,22 @@ const add = async (req, res) => {
         let data = []
         const database = client.db("db_locations")
         const dbLocations = database.collection("locations")
+        const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
+        const setup = slug(req.body.setup)
+            .replace(/\d+|^\s+|\s+$/g, "")
+            .split("-")
+            .join(" ")
+            .split(" en ")
+            .join(" ")
+
         data.push({
             country: req.body.country,
             city: req.body.city,
             adress: req.body.adress,
+            adressForClass: adressForClass,
             img: req.file ? req.file.filename : null,
             discription: req.body.discription,
-            setup: req.body.setup,
+            setup: setup,
         })
         console.log("data", data[0])
 
@@ -118,6 +127,7 @@ const add = async (req, res) => {
         console.log("added:", addLocations)
         res.redirect("/locations")
     } catch (error) {
+        console.log(err)
     } finally {
         console.log("added location")
     }
@@ -142,12 +152,3 @@ app.listen(PORT, () => {
 // req.file
 
 //deze dingen hierboven opzoeken
-
-// const add = (req, res) => {
-//     var message = slug("req.body.message")
-//     console.log("im running")
-//     data.push({
-//         massage: req.body.message,
-//     })
-//     res.redirect("/", +message)
-// }

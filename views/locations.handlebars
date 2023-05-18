@@ -1,5 +1,5 @@
 <header>
-    <img src="" alt="Calisthenics website logo" />
+    <img src="/images/plancheimg.png" alt="Calisthenics website logo" />
     <nav>
         <ul>
             <li>
@@ -13,11 +13,10 @@
 </header>
 <main id="locations">
     <h1>Calisthenics locations</h1>
-    <a href="/locations/add">Add location</a>
     <ul>
         {{#each result}}
-            <li>
-                <img src="" alt="Picture of the place" />
+            <li class="{{this.country}} {{this.city}} {{this.adressforClass}} {{this.setup}}">
+                <img src="{{this.img}}" alt="Picture of the place" />
                 <p>{{this.country}}</p>
                 <p>{{this.city}}</p>
                 <p>{{this.adress}}</p>
@@ -26,4 +25,34 @@
             </li>
         {{/each}}
     </ul>
+    <a href="/locations/add">Add location</a>
+    <section>
+        <h2>Filter locations</h2>
+        <label for="country">Country
+            <select name="country">
+                {{#each result}}
+                    <option value="">{{this.country}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <label for="city">City
+            <select name="city">
+                {{#each result}}
+                    <option value="">{{this.city}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <label for="setup">Setup
+            <select name="setup">
+                <option value="">Highbar</option>
+                <option value="">Lowbar</option>
+                <option value="">Dipbars</option>
+                <option value="">Ladder</option>
+                <option value="">Pole</option>
+            </select>
+        </label>
+
+    </section>
 </main>
+
+<script src="/js/filter.js"></script>
