@@ -22,43 +22,6 @@ app.set("views", "./views")
 app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
 const upload = multer({ dest: "static/upload/" })
-// home page
-// const testLink = "Swipe area"
-// app.get("/", async (req, res) => {
-//     const ipAddress = req.socket.remoteAddress
-//     module.exports = ipAddress
-//     console.log(ipAddress)
-//     // res.send(ipAddress);
-//     try {
-//         const database = client.db("test")
-//         const userCollection = database.collection("users")
-//         console.log("getting users")
-//         const getUser = await userCollection.find().toArray()
-//         console.log("results van getuser;", getUser)
-//         res.render("home", { linkOne: testLink, result: getUser })
-//     } catch (err) {
-//         console.log(err)
-//     } finally {
-//         console.log("finally get home")
-//     }
-// })
-
-//login page
-// app.get("/login", async (req, res) => {
-//     try {
-//         const database = client.db("test")
-//         const userCollection = database.collection("users")
-//         console.log("getting users for login")
-//         const getUser = await userCollection.find().toArray()
-//         console.log("results van getuser for login;", getUser)
-
-//         res.render("choose", { result: getUser })
-//     } catch (err) {
-//         console.log(err)
-//     } finally {
-//         console.log("finally getLoginPage")
-//     }
-// })
 
 const getDogPics = async () => {
     const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
@@ -104,6 +67,7 @@ const add = async (req, res) => {
         let data = []
         const database = client.db("db_locations")
         const dbLocations = database.collection("locations")
+        const getLocations = await dbLocations.find().toArray()
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const setup = slug(req.body.setup)
             .replace(/\d+|^\s+|\s+$/g, "")
@@ -122,12 +86,22 @@ const add = async (req, res) => {
             setup: setup,
         })
         console.log("data", data[0])
-
+        // let done = false
+        // getLocations.forEach((location) => {
+        //     if ((location.adress = !data.adress && done === false)) {
+        //         const addLocations = dbLocations.insertOne(data[0])
+        //         console.log("added:", addLocations)
+        //         console.log("set")
+        //     } else {
+        //         done = true
+        //         console.log("done")
+        //     }
+        // })
         const addLocations = await dbLocations.insertOne(data[0])
         console.log("added:", addLocations)
         res.redirect("/locations")
     } catch (error) {
-        console.log(err)
+        console.log(error)
     } finally {
         console.log("added location")
     }

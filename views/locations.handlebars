@@ -12,10 +12,14 @@
     </nav>
 </header>
 <main id="locations">
-    <h1>Calisthenics locations</h1>
+    <section>
+        <h1>Calisthenics locations</h1>
+        <a href="/locations/add">Add location</a>
+
+    </section>
     <ul>
         {{#each result}}
-            <li class="{{this.country}} {{this.city}} {{this.adressforClass}} {{this.setup}}">
+            <li class="{{this.country}} {{this.city}} {{this.adressForClass}} {{this.setup}}">
                 <img src="{{this.img}}" alt="Picture of the place" />
                 <p>{{this.country}}</p>
                 <p>{{this.city}}</p>
@@ -25,30 +29,40 @@
             </li>
         {{/each}}
     </ul>
-    <a href="/locations/add">Add location</a>
     <section>
         <h2>Filter locations</h2>
         <label for="country">Country
             <select name="country">
+                <option value="0">-</option>
                 {{#each result}}
-                    <option value="">{{this.country}}</option>
+                    <option value="{{this.country}}">{{this.country}}</option>
                 {{/each}}
             </select>
         </label>
         <label for="city">City
             <select name="city">
+                <option value="0">-</option>
                 {{#each result}}
-                    <option value="">{{this.city}}</option>
+                    <option value="{{this.city}}">{{this.city}}</option>
                 {{/each}}
             </select>
         </label>
         <label for="setup">Setup
             <select name="setup">
-                <option value="">Highbar</option>
-                <option value="">Lowbar</option>
-                <option value="">Dipbars</option>
-                <option value="">Ladder</option>
-                <option value="">Pole</option>
+                <option value="0">-</option>
+                <option value="Highbar">Highbar</option>
+                <option value="lowbar">Lowbar</option>
+                <option value="dipbars">Dipbars</option>
+                <option value="ladder">Ladder</option>
+                <option value="pole">Pole</option>
+            </select>
+        </label>
+        <label for="street">Street
+            <select name="street">
+                <option value="0">-</option>
+                {{#each result}}
+                    <option value="{{this.adressForClass}}">{{this.adressForClass}}</option>
+                {{/each}}
             </select>
         </label>
 

@@ -14,7 +14,7 @@
   overflow-y: hidden;
 }
 
-#locations h1 {
+#locations section:nth-child(1) {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 3;
@@ -24,12 +24,38 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  font-size: 3em;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6em;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1em;
+}
+
+#locations section:nth-child(1) h1 {
+  font-size: 3em;
+}
+
+#locations section:nth-child(1) a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.3em;
+  background-color: bisque;
+  border: solid black 2px;
+  border-radius: 10px;
+  width: 9em;
+  height: 2em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
 }
 
 #locations ul {
@@ -49,10 +75,11 @@
   padding: 0;
   gap: 2em;
   margin: 2em;
+  padding-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
   max-width: 1660px;
-  max-height: 100%;
+  max-height: 90%;
   overflow-y: auto;
   -ms-grid-columns: (minmax(458px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(458px, 1fr));
@@ -67,7 +94,9 @@
   -ms-grid-rows: 200px 1fr 1fr 1fr 1fr;
       grid-template-rows: 200px 1fr 1fr 1fr 1fr;
   list-style-type: none;
-  border: solid black 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 15px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -76,7 +105,7 @@
           align-items: center;
   padding: 0.2em;
   width: 450px;
-  max-height: 350px;
+  height: 350px;
 }
 
 #locations ul li img {
@@ -144,29 +173,7 @@
   grid-row-end: 6;
 }
 
-#locations a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  font-size: 1.3em;
-  background-color: bisque;
-  border: solid black 2px;
-  border-radius: 10px;
-  width: 9em;
-  height: 2em;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: black;
-}
-
-#locations section {
+#locations section:nth-child(3) {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
@@ -174,11 +181,40 @@
       grid-row-start: 1;
   grid-row-end: 3;
   border: solid black 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em;
+  padding-top: 0;
+  font-size: 1.5em;
+  gap: 0.5em;
 }
 
-#locations section h2 {
+#locations section:nth-child(3) h2 {
   width: 100%;
   text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#locations section:nth-child(3) label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#locations section:nth-child(3) label select {
+  width: 40%;
+  height: 100%;
 }
 
 #addLocations {
@@ -216,17 +252,14 @@
 }
 
 #addLocations section h1 {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
   font-size: 3em;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
 }
 
 #addLocations section a {
