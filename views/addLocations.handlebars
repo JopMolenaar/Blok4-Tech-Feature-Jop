@@ -17,7 +17,7 @@
         <a href="/locations">back</a>
     </section>
 
-    <form action="/add-locations" method="post">
+    <form action="/add-locations" method="post" enctype="multipart/form-data">
         <input name="useMyLocation" type="text" id="in" />
         <button id="findLocation" onclick="findip()" type="button">Use my location</button>
         <label>
@@ -37,7 +37,7 @@
         </label>
         <label>
             Picture of the location:
-            <input name="img" type="file" accept="image" />
+            <input name="image" type="file" accept="image" />
         </label>
         <label>
             Discription:
@@ -47,20 +47,9 @@
             Setup:
             <input name="setup" type="text" />
         </label>
+        <input type="text" name="ipAdress" id="ipAdress" />
         <input type="submit" value="add" />
     </form>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/getLocation.js"></script>
-
-{{!-- <ul>
-        {{#each result}}
-            <li>
-                {{! to url that is specific for every user }}
-                <a href="/{{this._id}}">
-                    <img src="{{this.pfPicture}}" alt="{{this.name}}'s profile picuture" />
-                    <h2>{{this.name}} {{this.lastname}}</h2>
-                </a>
-            </li>
-        {{/each}}
-    </ul> --}}

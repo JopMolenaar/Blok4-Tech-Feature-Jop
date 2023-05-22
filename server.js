@@ -7,12 +7,22 @@ const client = new MongoClient(MONGO_URI, {
     useUnifiedTopology: true,
 })
 client.connect()
+const path = require("path")
 // const xss = require("xss")
 const slug = require("slug")
 const multer = require("multer")
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "static/upload/")
+    },
+    filename: (req, file, cb) => {
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    },
+})
+const upload = multer({ storage: storage })
 const app = express()
 const PORT = process.env.PORT || 3000
-const path = require("path")
 const mongoose = require("mongoose")
 const { engine } = require("express-handlebars")
 const ObjectId = require("mongodb").ObjectId
@@ -22,7 +32,6 @@ app.set("view engine", "handlebars")
 app.set("views", "./views")
 app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
-const upload = multer({ dest: "static/upload/" })
 
 // const getDogPics = async () => {
 //     const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
@@ -85,11 +94,12 @@ const add = async (req, res) => {
             img: req.file ? req.file.filename : null,
             discription: req.body.discription,
             setup: setup,
+            ip: req.body.ipAdress,
         })
         console.log("data", data[0])
         // let done = false
         // getLocations.forEach((location) => {
-        //     if ((location.adress = !data.adress && done === false)) {
+        //     if ((location.ip = !data.ip && done === false)) {
         //         const addLocations = dbLocations.insertOne(data[0])
         //         console.log("added:", addLocations)
         //         console.log("set")
@@ -107,7 +117,7 @@ const add = async (req, res) => {
         console.log("added location")
     }
 }
-app.post("/add-locations", upload.single("img"), add)
+app.post("/add-locations", upload.single("image"), add)
 
 app.get("/locations/add", async (req, res) => {
     res.render("addLocations")

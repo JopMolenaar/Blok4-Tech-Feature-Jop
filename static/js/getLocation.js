@@ -1,9 +1,8 @@
-// const filledIn = document.querySelector("#out")
-// filledIn.style.display = "none"
 const countryFilled = document.getElementById("countryFilled")
 const cityFilled = document.getElementById("cityFilled")
 const AtFilled = document.getElementById("AtFilled")
 const input = document.getElementById("in")
+const ipAdress = document.getElementById("ipAdress")
 countryFilled.style.display = "none"
 cityFilled.style.display = "none"
 AtFilled.style.display = "none"
@@ -15,12 +14,12 @@ const park = document.getElementById("park")
 
 const findip = () => {
     $.get("https://ipapi.co/" + input.value + "/json", (data) => {
-        // filledIn.style.display = "flex"
         // document.getElementById("out").innerHTML = "ip: " + data.ip + "<br>Location " + data.city + "," + data.region + "," + data.country_name
 
         country.value = data.country_name
         city.value = data.city
         park.value = data.org
+        ipAdress.value = data.ip
 
         country.style.opacity = 0
         city.style.opacity = 0
