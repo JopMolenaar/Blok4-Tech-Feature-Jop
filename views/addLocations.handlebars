@@ -18,17 +18,22 @@
     </section>
 
     <form action="/add-locations" method="post">
+        <input name="useMyLocation" type="text" id="in" />
+        <button id="findLocation" onclick="findip()" type="button">Use my location</button>
         <label>
             Country:
-            <input name="country" type="text" />
+            <input id="country" name="country" type="text" />
+            <p id="countryFilled"></p>
         </label>
         <label>
             City:
-            <input name="city" type="text" />
+            <input id="city" name="city" type="text" />
+            <p id="cityFilled"></p>
         </label>
         <label>
-            Adress:
-            <input name="adress" type="text" />
+            Adress or near by park:
+            <input id="park" name="adress" type="text" />
+            <p id="AtFilled"></p>
         </label>
         <label>
             Picture of the location:
@@ -45,6 +50,8 @@
         <input type="submit" value="add" />
     </form>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/getLocation.js"></script>
 
 {{!-- <ul>
         {{#each result}}

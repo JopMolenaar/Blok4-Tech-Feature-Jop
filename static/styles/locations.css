@@ -232,7 +232,7 @@
           flex-direction: column;
 }
 
-#addLocations section {
+#addLocations > section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,7 +251,7 @@
   margin-right: auto;
 }
 
-#addLocations section h1 {
+#addLocations > section h1 {
   font-size: 3em;
   width: 100%;
   display: -webkit-box;
@@ -262,7 +262,7 @@
           justify-content: left;
 }
 
-#addLocations section a {
+#addLocations > section a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -343,5 +343,9 @@
 
 #addLocations form input[type="file"] {
   font-size: 0.6em;
+}
+
+#addLocations form p {
+  margin: 0;
 }
 /*# sourceMappingURL=locations.css.map */

@@ -31,6 +31,7 @@ const fixOptions = () => {
         optionValueArray.push(`${option.value}`)
     })
 }
+
 fixOptions()
 switch (body.id) {
     case "home":

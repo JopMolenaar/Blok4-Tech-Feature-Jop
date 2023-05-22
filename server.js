@@ -7,6 +7,7 @@ const client = new MongoClient(MONGO_URI, {
     useUnifiedTopology: true,
 })
 client.connect()
+// const xss = require("xss")
 const slug = require("slug")
 const multer = require("multer")
 const app = express()
@@ -23,11 +24,10 @@ app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
 const upload = multer({ dest: "static/upload/" })
 
-const getDogPics = async () => {
-    const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
-    return await res.json()
-}
-
+// const getDogPics = async () => {
+//     const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
+//     return await res.json()
+// }
 // app.get(`/:id`, async (req, res) => {
 //     try {
 //         // const getPfPics = await getDogPics()
@@ -54,6 +54,7 @@ app.get("/locations", async (req, res) => {
         console.log("getting locations")
         const getLocations = await userCollection.find().toArray()
         console.log("locations:", getLocations)
+        // get weather api search for country.city en give that info
         res.render("locations", { result: getLocations })
     } catch (err) {
         console.log(err)
