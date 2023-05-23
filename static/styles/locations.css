@@ -3,8 +3,9 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 400px 1fr;
-      grid-template-columns: 400px 1fr;
+  -ms-grid-columns: 1fr fit-content;
+      grid-template-columns: 1fr -webkit-fit-content;
+      grid-template-columns: 1fr fit-content;
   -ms-grid-rows: 100px 1fr;
       grid-template-rows: 100px 1fr;
   -webkit-box-orient: vertical;
@@ -29,19 +30,28 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 6em;
-  margin-left: auto;
-  margin-right: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 1em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 1em;
   margin-top: 1em;
 }
 
 #locations section:nth-child(1) h1 {
-  font-size: 3em;
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 0.6em;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  height: 32px;
 }
 
 #locations section:nth-child(1) a {
@@ -204,7 +214,7 @@
   -ms-grid-row: 1;
       grid-row-start: 1;
   grid-row-end: 3;
-  border: solid black 5px;
+  border-right: solid black 1px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -253,7 +263,6 @@
 }
 
 #addLocations {
-  height: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -424,5 +433,35 @@
 #addLocations form #ipAdress {
   position: absolute;
   opacity: 0;
+}
+
+@media (min-width: 1050px) {
+  #locations {
+    -ms-grid-columns: 400px 1fr;
+        grid-template-columns: 400px 1fr;
+  }
+  #locations section:nth-child(1) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1em;
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+  #locations section:nth-child(1) h1 {
+    font-size: 3em;
+    margin-bottom: 0.6em;
+  }
+}
+
+@media (min-width: 1300px) {
+  #locations section:nth-child(1) {
+    margin-left: auto;
+    margin-right: auto;
+    gap: 3em;
+  }
 }
 /*# sourceMappingURL=locations.css.map */
