@@ -65,7 +65,6 @@
             border-radius: 15px;
             justify-content: center;
             align-items: center;
-            // padding: 0.2em;
             width: 450px;
             height: 350px;
             overflow: hidden;
@@ -114,7 +113,9 @@
                 grid-column-end: 4;
                 grid-row-start: 2;
                 grid-row-end: 5;
-                border: solid black 1px;
+                border-bottom: solid black 1px;
+                border-left: solid black 1px;
+                border-top: solid black 1px;
                 padding-top: 0;
                 margin-top: 0.5em;
                 height: 100%;
@@ -141,10 +142,19 @@
         padding-top: 0;
         font-size: 1.5em;
         gap: 0.5em;
+        position: relative;
         h2 {
             width: 100%;
             text-align: center;
             height: fit-content;
+        }
+        #JavascriptOff {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            color: rgb(197, 0, 0);
         }
         label {
             display: flex;
@@ -202,9 +212,26 @@
         padding: 2em;
         font-size: 2em;
         justify-content: space-between;
-        button {
-            width: 20%;
-            place-self: end;
+        section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            #javascriptOffAtAdd {
+                font-size: 0.7em;
+                place-self: end;
+                margin: 0;
+                padding: 0;
+                width: fit-content;
+                flex-wrap: nowrap;
+                color: rgb(197, 0, 0);
+            }
+            button {
+                width: 50%;
+                min-width: fit-content;
+                max-width: 200px;
+                place-self: end;
+                flex-wrap: nowrap;
+            }
         }
         label {
             text-align: center;
@@ -235,6 +262,7 @@
             border: solid black 1px;
             background-color: white;
             border-radius: 5px;
+            max-width: 200px;
             align-self: flex-end;
         }
         input[type="file"] {

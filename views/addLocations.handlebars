@@ -18,36 +18,39 @@
     </section>
 
     <form action="/add-locations" method="post" enctype="multipart/form-data">
-        <input name="useMyLocation" type="text" id="in" />
-        <button id="findLocation" onclick="findip()" type="button">Use my location</button>
-        <label>
+        {{! <input name="useMyLocation" type="text" id="in" /> }}
+        <section>
+            <p id="javascriptOffAtAdd">Turn on Javascript to use the filter function</p>
+            <button id="findLocation" onclick="findip()" type="button">Use my location</button>
+        </section>
+        <label id="countryFilled">
             Country:
-            <input id="country" name="country" type="text" />
-            <p id="countryFilled"></p>
+            <input id="country" name="country" type="text" required />
+            {{! <p ></p> }}
         </label>
-        <label>
+        <label id="cityFilled">
             City:
-            <input id="city" name="city" type="text" />
-            <p id="cityFilled"></p>
+            <input id="city" name="city" type="text" required />
+            {{! <p id="cityFilled"></p> }}
         </label>
-        <label>
+        <label id="AtFilled">
             Adress or near by park:
-            <input id="park" name="adress" type="text" />
-            <p id="AtFilled"></p>
+            <input id="park" name="adress" type="text" required />
+            {{! <p id="AtFilled"></p> }}
         </label>
         <label>
             Picture of the location:
-            <input name="image" type="file" accept="image" />
+            <input name="image" type="file" accept="image" required />
         </label>
         <label>
             Discription:
-            <textarea name="discription" cols="30" rows="1"></textarea>
+            <textarea required name="discription" cols="30" rows="1"></textarea>
         </label>
         <label>
             Setup:
-            <input name="setup" type="text" />
+            <input name="setup" type="text" required />
         </label>
-        <input type="text" name="ipAdress" id="ipAdress" />
+        {{! <input type="text" name="ipAdress" id="ipAdress" /> }}
         <input type="submit" value="add" />
     </form>
 </main>

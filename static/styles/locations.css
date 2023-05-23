@@ -178,7 +178,9 @@
   -ms-grid-row: 2;
       grid-row-start: 2;
   grid-row-end: 5;
-  border: solid black 1px;
+  border-bottom: solid black 1px;
+  border-left: solid black 1px;
+  border-top: solid black 1px;
   padding-top: 0;
   margin-top: 0.5em;
   height: 100%;
@@ -214,6 +216,7 @@
   padding-top: 0;
   font-size: 1.5em;
   gap: 0.5em;
+  position: relative;
 }
 
 #locations section:nth-child(3) h2 {
@@ -222,6 +225,16 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+#locations section:nth-child(3) #JavascriptOff {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 250px;
+  color: #c50000;
 }
 
 #locations section:nth-child(3) label {
@@ -322,9 +335,39 @@
           justify-content: space-between;
 }
 
-#addLocations form button {
-  width: 20%;
+#addLocations form section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#addLocations form section #javascriptOffAtAdd {
+  font-size: 0.7em;
   place-self: end;
+  margin: 0;
+  padding: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  color: #c50000;
+}
+
+#addLocations form section button {
+  width: 50%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: 200px;
+  place-self: end;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 #addLocations form label {
@@ -365,6 +408,7 @@
   border: solid black 1px;
   background-color: white;
   border-radius: 5px;
+  max-width: 200px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }

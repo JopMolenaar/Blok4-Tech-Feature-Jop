@@ -2,7 +2,7 @@ const body = document.querySelector("body")
 const filterNav = document.querySelector("#locations section:nth-child(3)")
 const locationsList = document.querySelector("#locations ul")
 const selects = filterNav.querySelectorAll("select")
-
+const jsOff = (document.getElementById("javascriptOff").style.display = "none")
 selects.forEach((select) => {
     select.addEventListener("change", () => {
         const others = locationsList.querySelectorAll(`li`)
