@@ -18,7 +18,6 @@
     </section>
 
     <form action="/add-locations" method="post" enctype="multipart/form-data">
-        {{! <input name="useMyLocation" type="text" id="in" /> }}
         <section>
             <p id="javascriptOffAtAdd">Turn on Javascript to use the filter function</p>
             <button id="findLocation" onclick="findip()" type="button">Use my location</button>
@@ -26,17 +25,14 @@
         <label id="countryFilled">
             Country:
             <input id="country" name="country" type="text" required />
-            {{! <p ></p> }}
         </label>
         <label id="cityFilled">
             City:
             <input id="city" name="city" type="text" required />
-            {{! <p id="cityFilled"></p> }}
         </label>
         <label id="AtFilled">
             Adress or near by park:
             <input id="park" name="adress" type="text" required />
-            {{! <p id="AtFilled"></p> }}
         </label>
         <label>
             Picture of the location:
