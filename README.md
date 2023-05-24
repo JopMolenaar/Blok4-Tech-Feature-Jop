@@ -1,6 +1,6 @@
 # My feature
 
-<img src="/static/images/readmePicture.jpeg" alt="logo of a calisthenics park"  width="400" height="200" object-fit= "cover" />
+<img src="/static/images/readmePicture.jpeg" alt="logo of a calisthenics park"  width="800" height="400" object-fit= "contain" />
 source: https://calisthenicsworld.nl/parken/
 
 ## Introduction
