@@ -1,7 +1,7 @@
-# Cali locations
-
-<img src="/static/images/readmePicture.jpeg" alt="logo of a calisthenics park"  width="800" height="400" object-fit= "cover" />
+<img src="/static/images/readmePicture.jpeg" alt="logo of a calisthenics park"  width="800" height="400" object-fit= "none" />
 source: https://calisthenicsworld.nl/parken/
+
+# Cali locations
 
 ## Introduction
 
