@@ -1,6 +1,6 @@
-# My feature
+# Cali locations
 
-<img src="/static/images/readmePicture.jpeg" alt="logo of a calisthenics park"  width="800" height="400" object-fit= "contain" />
+<img src="/static/images/readmePicture.jpeg" alt="logo of a calisthenics park"  width="800" height="400" object-fit= "cover" />
 source: https://calisthenicsworld.nl/parken/
 
 ## Introduction
