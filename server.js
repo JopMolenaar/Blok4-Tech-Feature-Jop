@@ -1,4 +1,3 @@
-// const name = require("./static/js/name.js")
 const express = require("express")
 const { MongoClient } = require("mongodb")
 const { MONGO_URI } = require("/Users/jopmolenaar/Documents/Blok4-Tech-Feature-Jop/.env")
@@ -33,37 +32,13 @@ app.set("views", "./views")
 app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
 
-// const getDogPics = async () => {
-//     const res = await fetch("https://random.dog/c5a493db-526c-4563-9e97-f12b36d592d6.jpg")
-//     return await res.json()
-// }
-// app.get(`/:id`, async (req, res) => {
-//     try {
-//         // const getPfPics = await getDogPics()
-//         console.log("getting dog pictures")
-//         const database = client.db("test")
-//         const userCollection = database.collection("users")
-//         console.log("getting users")
-//         const getUser = await userCollection.find(new ObjectId(req.params.id)).toArray()
-//         console.log("results van getuser;", getUser)
-//         // pfPictures: getPfPics
-//         res.render("home", { result: getUser })
-//     } catch (err) {
-//         console.log(err)
-//     } finally {
-//         console.log("finally getSpecificUserPage")
-//     }
-// })
-
 app.get("/locations", async (req, res) => {
-    //slurp de database leeg voor locaties
     try {
         const database = client.db("db_locations")
         const userCollection = database.collection("locations")
         console.log("getting locations")
         const getLocations = await userCollection.find().toArray()
         console.log("locations:", getLocations)
-        // get weather api search for country.city en give that info
         res.render("locations", { result: getLocations })
     } catch (err) {
         console.log(err)
@@ -130,10 +105,3 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
     console.log(`server running on port: ${PORT}`)
 })
-
-// req.params
-// req.body
-// req.query
-// req.file
-
-//deze dingen hierboven opzoeken
