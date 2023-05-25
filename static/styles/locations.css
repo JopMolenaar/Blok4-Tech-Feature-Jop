@@ -59,7 +59,7 @@
   display: -ms-flexbox;
   display: flex;
   font-size: 1.3em;
-  background-color: bisque;
+  background-color: white;
   border: solid black 2px;
   border-radius: 10px;
   width: 9em;
@@ -237,7 +237,7 @@
   height: fit-content;
 }
 
-#locations section:nth-child(3) #JavascriptOff {
+#locations section:nth-child(3) #javascriptOff {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -260,6 +260,7 @@
 #locations section:nth-child(3) label select {
   width: 40%;
   height: 100%;
+  border: black 2px solid;
 }
 
 #addLocations {
@@ -311,7 +312,7 @@
   display: -ms-flexbox;
   display: flex;
   font-size: 1.3em;
-  background-color: bisque;
+  background-color: white;
   border: solid black 2px;
   border-radius: 10px;
   width: 9em;
@@ -335,7 +336,8 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 50%;
-  border: solid black 1px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 10px;
   padding: 2em;
   font-size: 2em;
@@ -380,7 +382,6 @@
 }
 
 #addLocations form label {
-  text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -414,7 +415,7 @@
   height: 1.4em;
   font-size: 0.8em;
   width: 30%;
-  border: solid black 1px;
+  border: solid black 2px;
   background-color: white;
   border-radius: 5px;
   max-width: 200px;
