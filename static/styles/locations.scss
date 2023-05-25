@@ -280,6 +280,15 @@
             opacity: 0;
         }
     }
+    #errorMessage {
+        font-size: 1.5em;
+        color: rgb(197, 0, 0);
+    }
+    #coordinates {
+        position: absolute;
+        width: 1px;
+        opacity: 0;
+    }
 }
 
 @media (min-width: 1050px) {

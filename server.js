@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = 3000
 const mongoose = require("mongoose")
 const { engine } = require("express-handlebars")
 const ObjectId = require("mongodb").ObjectId
@@ -50,9 +50,15 @@ app.get("/locations", async (req, res) => {
 const add = async (req, res) => {
     try {
         let data = []
+        let authentication = []
         const database = client.db("db_locations")
         const dbLocations = database.collection("locations")
         const getLocations = await dbLocations.find().toArray()
+        console.log(getLocations)
+        getLocations.forEach((location) => {
+            authentication.push(`${location.country}, ${location.city}, ${location.adress}`)
+        })
+        console.log(authentication)
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const setup = slug(req.body.setup)
             .replace(/\d+|^\s+|\s+$/g, "")
@@ -66,33 +72,27 @@ const add = async (req, res) => {
             city: req.body.city,
             adress: req.body.adress,
             adressForClass: adressForClass,
+            coordinates: req.body.coordinates,
             img: req.file ? req.file.filename : null,
             discription: req.body.discription,
             setup: setup,
-            ip: req.body.ipAdress,
         })
-        console.log("data", data[0])
-        // let done = false
-        // getLocations.forEach((location) => {
-        //     if ((location.ip = !data.ip && done === false)) {
-        //         const addLocations = dbLocations.insertOne(data[0])
-        //         console.log("added:", addLocations)
-        //         console.log("set")
-        //     } else {
-        //         done = true
-        //         console.log("done")
-        //     }
-        // })
-        const addLocations = await dbLocations.insertOne(data[0])
-        console.log("added:", addLocations)
-        res.redirect("/locations")
+        if (authentication.includes(`${data[0].country}, ${data[0].city}, ${data[0].adress}`)) {
+            const errorExists = "Location already exists"
+            res.render("addLocations", { error: errorExists })
+        } else {
+            console.log("data", data[0])
+            const addLocations = await dbLocations.insertOne(data[0])
+            console.log("added:", addLocations)
+            res.redirect("/locations")
+        }
     } catch (error) {
         console.log(error)
     } finally {
         console.log("added location")
     }
 }
-app.post("/add-locations", upload.single("image"), add)
+app.post("/locations/add", upload.single("image"), add)
 
 app.get("/locations/add", async (req, res) => {
     res.render("addLocations")

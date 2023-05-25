@@ -17,7 +17,7 @@
         <a href="/locations">back</a>
     </section>
 
-    <form action="/add-locations" method="post" enctype="multipart/form-data">
+    <form action="/locations/add" method="post" enctype="multipart/form-data">
         <section>
             <p id="javascriptOffAtAdd">Turn on Javascript to use the filter function</p>
             <button id="findLocation" onclick="findip()" type="button">Use my location</button>
@@ -46,9 +46,12 @@
             Setup:
             <input name="setup" type="text" required />
         </label>
-        {{! <input type="text" name="ipAdress" id="ipAdress" /> }}
+        <input id="coordinates" name="coordinates" type="text" />
         <input type="submit" value="add" />
     </form>
+    {{#if error}}
+        <p id="errorMessage">{{error}}</p>
+    {{/if}}
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/getLocation.js"></script>

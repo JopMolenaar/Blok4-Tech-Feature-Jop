@@ -436,6 +436,17 @@
   opacity: 0;
 }
 
+#addLocations #errorMessage {
+  font-size: 1.5em;
+  color: #c50000;
+}
+
+#addLocations #coordinates {
+  position: absolute;
+  width: 1px;
+  opacity: 0;
+}
+
 @media (min-width: 1050px) {
   #locations {
     -ms-grid-columns: 400px 1fr;
