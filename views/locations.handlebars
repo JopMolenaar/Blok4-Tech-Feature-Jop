@@ -54,16 +54,6 @@
                 {{/each}}
             </select>
         </label>
-        <label for="setup">Setup
-            <select name="setup">
-                <option value="0">-</option>
-                <option value="Highbar">Highbar</option>
-                <option value="lowbar">Lowbar</option>
-                <option value="dipbars">Dipbars</option>
-                <option value="ladder">Ladder</option>
-                <option value="pole">Pole</option>
-            </select>
-        </label>
         <label for="street">Street
             <select name="street">
                 <option value="0">-</option>
@@ -72,8 +62,25 @@
                 {{/each}}
             </select>
         </label>
+        <h3>Setup</h3>
+            <label for="highbar">Highbar
+                <input type="checkbox" name="highbar" value="highbars" />
+            </label>
+            <label for="lowbar">Lowbar
+                <input type="checkbox" name="lowbar" value="lowbar" />
+            </label>
+            <label for="dipbars">Dipbars
+                <input type="checkbox" name="dipbars" value="dipbars" />
+            </label>
+            <label for="ladder">Ladder
+                <input type="checkbox" name="ladder" value="ladder" />
+            </label>
+            <label for="pole">Pole
+                <input type="checkbox" name="pole" value="pole" />
+            </label>
+        </label>
     </section>
 </main>
 
 <script src="/js/filter.js"></script>
-<script src="/js/locationScript.js"></script>i
+<script src="/js/locationScript.js"></script>
