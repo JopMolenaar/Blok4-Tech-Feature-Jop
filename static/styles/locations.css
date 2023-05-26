@@ -109,8 +109,8 @@
   -ms-grid-rows: 200px 1fr 1fr 1fr 1fr;
       grid-template-rows: 200px 1fr 1fr 1fr 1fr;
   list-style-type: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 15px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -121,6 +121,7 @@
   width: 450px;
   height: 350px;
   overflow: hidden;
+  position: relative;
 }
 
 #locations ul li div {
@@ -207,6 +208,31 @@
   max-width: 300px;
 }
 
+#locations ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #4c4c4c;
+  color: #e3e3e3;
+}
+
 #locations section:nth-child(3) {
   -ms-grid-column: 1;
       grid-column-start: 1;
@@ -248,9 +274,7 @@
 }
 
 #locations section:nth-child(3) label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

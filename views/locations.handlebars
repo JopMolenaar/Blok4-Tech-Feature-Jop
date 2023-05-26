@@ -29,6 +29,9 @@
                 <p>{{this.adress}}</p>
                 <p>{{this.discription}}</p>
                 <p>#{{this.setup}}</p>
+                {{#if this.coordinates}}
+                    <a href="https://www.google.com/maps/place/{{this.coordinates}}" target="”_blank”">Google maps location</a>
+                {{/if}}
             </li>
         {{/each}}
     </ul>
@@ -73,3 +76,4 @@
 </main>
 
 <script src="/js/filter.js"></script>
+<script src="/js/locationScript.js"></script>i

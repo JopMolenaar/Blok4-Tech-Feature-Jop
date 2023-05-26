@@ -1,9 +1,14 @@
 window.onload = () => {
     const body = document.querySelector("body")
     const filterNav = document.querySelector("#locations section:nth-child(3)")
+
     const locationsList = document.querySelector("#locations ul")
     const selects = filterNav.querySelectorAll("select")
+    const labels = filterNav.querySelectorAll("label")
     const jsOff = (document.getElementById("javascriptOff").style.display = "none")
+    labels.forEach((label) => {
+        label.style.display = "flex"
+    })
     selects.forEach((select) => {
         select.addEventListener("change", () => {
             const others = locationsList.querySelectorAll(`li`)

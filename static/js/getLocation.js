@@ -7,18 +7,17 @@ const country = document.getElementById("country")
 const city = document.getElementById("city")
 const park = document.getElementById("park")
 const button = document.getElementById("findLocation")
+const pCoordinates = document.getElementById("coordinates")
 let buttonClicked = false
 const findip = () => {
+    // Externe api
     $.get("https://ipapi.co/" + "" + "/json", (data) => {
-        // document.getElementById("out").innerHTML = "ip: " + data.ip + "<br>Location " + data.city + "," + data.region + "," + data.country_name
-
         if (buttonClicked === false) {
             buttonClicked = true
 
             country.value = data.country_name
             city.value = data.city
             park.value = data.org
-            // ipAdress.value = data.ip
 
             country.style.opacity = 0
             city.style.opacity = 0
@@ -35,12 +34,11 @@ const findip = () => {
             pCity.textContent = data.city
             cityFilled.appendChild(pCity)
 
-            //api
-            const pCoordinates = document.getElementById("#coordinates")
+            // Geolocation web api
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords
-                // pCoordinates.value = `${latitude},${longitude}`
-                console.log(`${latitude}, ${longitude}`)
+                pCoordinates.value = `${latitude},${longitude}`
+                console.log(pCoordinates.value)
             })
 
             const pPark = document.createElement("p")
@@ -53,7 +51,11 @@ const findip = () => {
             country.value = ""
             city.value = ""
             park.value = ""
-
+            navigator.geolocation.getCurrentPosition((position) => {
+                const { latitude, longitude } = position.coords
+                console.log(`Dont use ${latitude},${longitude}`)
+                pCoordinates.value = null
+            })
             country.style.opacity = "100%"
             city.style.opacity = "100%"
             park.style.opacity = "100%"

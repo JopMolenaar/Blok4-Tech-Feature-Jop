@@ -58,7 +58,9 @@ const add = async (req, res) => {
         getLocations.forEach((location) => {
             authentication.push(`${location.country}, ${location.city}, ${location.adress}`)
         })
-        console.log(authentication)
+        const country = slug(req.body.country).replace(/[^a-zA-Z]/g, "")
+        const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
+        const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const setup = slug(req.body.setup)
             .replace(/\d+|^\s+|\s+$/g, "")
@@ -68,11 +70,11 @@ const add = async (req, res) => {
             .join(" ")
 
         data.push({
-            country: req.body.country,
-            city: req.body.city,
-            adress: req.body.adress,
+            country: country,
+            city: city,
+            adress: adress,
             adressForClass: adressForClass,
-            coordinates: req.body.coordinates,
+            coordinates: req.body ? req.body.coordinates : null,
             img: req.file ? req.file.filename : null,
             discription: req.body.discription,
             setup: setup,
