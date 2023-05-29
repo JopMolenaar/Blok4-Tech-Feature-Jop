@@ -19,7 +19,25 @@
     </section>
     <ul>
         {{#each result}}
-            <li class="{{this.country}} {{this.city}} {{this.adressForClass}} {{this.setup}}">
+            <li class="{{this.country}} {{this.city}} {{this.adressForClass}}  
+                    {{#if this.setup.highbar}}
+                        {{this.setup.highbar}}
+                    {{/if}}
+                    {{#if this.setup.highbar}}
+                        {{this.setup.mediumbar}}
+                    {{/if}}
+                    {{#if this.setup.lowbar}}
+                        {{this.setup.lowbar}}
+                    {{/if}}
+                    {{#if this.setup.dipbars}}
+                        {{this.setup.dipbars}}
+                    {{/if}}
+                    {{#if this.setup.ladder}}
+                        {{this.setup.ladder}}
+                    {{/if}}
+                    {{#if this.setup.pole}}
+                        {{this.setup.pole}}
+                    {{/if}}">
                 <div>
                     <img src="/upload/{{this.img}}" alt="Picture of the place" />
                 </div>
@@ -28,7 +46,27 @@
                 <p>{{this.city}}</p>
                 <p>{{this.adress}}</p>
                 <p>{{this.discription}}</p>
-                <p>#{{this.setup}}</p>
+
+                <p>
+                    {{#if this.setup.highbar}}
+                        #{{this.setup.highbar}}
+                    {{/if}}
+                    {{#if this.setup.mediumbar}}
+                        #{{this.setup.mediumbar}}
+                    {{/if}}
+                    {{#if this.setup.lowbar}}
+                        #{{this.setup.lowbar}}
+                    {{/if}}
+                    {{#if this.setup.dipbars}}
+                        #{{this.setup.dipbars}}
+                    {{/if}}
+                    {{#if this.setup.ladder}}
+                        #{{this.setup.ladder}}
+                    {{/if}}
+                    {{#if this.setup.pole}}
+                        #{{this.setup.pole}}
+                    {{/if}}
+                </p>
                 {{#if this.coordinates}}
                     <a href="https://www.google.com/maps/place/{{this.coordinates}}" target="”_blank”">Google maps location</a>
                 {{/if}}
@@ -62,7 +100,8 @@
                 {{/each}}
             </select>
         </label>
-        <h3>Setup</h3>
+        <section>
+            <h3>Setup</h3>
             <label for="highbar">Highbar
                 <input type="checkbox" name="highbar" value="highbars" />
             </label>
@@ -78,7 +117,7 @@
             <label for="pole">Pole
                 <input type="checkbox" name="pole" value="pole" />
             </label>
-        </label>
+        </section>
     </section>
 </main>
 

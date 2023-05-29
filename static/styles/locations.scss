@@ -170,6 +170,15 @@
             text-align: center;
             height: fit-content;
         }
+        section {
+            h3 {
+                margin-bottom: 0.2em;
+            }
+            label {
+                margin-left: 0.5em;
+            }
+        }
+
         #javascriptOff {
             position: absolute;
             top: 50%;

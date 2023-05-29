@@ -62,12 +62,12 @@ const add = async (req, res) => {
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
-        const setup = slug(req.body.setup)
-            .replace(/\d+|^\s+|\s+$/g, "")
-            .split("-")
-            .join(" ")
-            .split(" en ")
-            .join(" ")
+        // const setup = slug(req.body.setup)
+        //     .replace(/\d+|^\s+|\s+$/g, "")
+        //     .split("-")
+        //     .join(" ")
+        //     .split(" en ")
+        //     .join(" ")
 
         data.push({
             country: country,
@@ -77,7 +77,14 @@ const add = async (req, res) => {
             coordinates: req.body ? req.body.coordinates : null,
             img: req.file ? req.file.filename : null,
             discription: req.body.discription,
-            setup: setup,
+            setup: {
+                highbar: req.body.highbar,
+                mediumbar: req.body.mediumbar,
+                lowbar: req.body.lowbar,
+                dipbars: req.body.dipbars,
+                ladder: req.body.ladder,
+                pole: req.body.pole,
+            },
         })
         if (authentication.includes(`${data[0].country}, ${data[0].city}, ${data[0].adress}`)) {
             const errorExists = "Location already exists"

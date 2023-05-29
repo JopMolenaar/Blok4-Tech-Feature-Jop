@@ -263,6 +263,14 @@
   height: fit-content;
 }
 
+#locations section:nth-child(3) section h3 {
+  margin-bottom: 0.2em;
+}
+
+#locations section:nth-child(3) section label {
+  margin-left: 0.5em;
+}
+
 #locations section:nth-child(3) #javascriptOff {
   position: absolute;
   top: 50%;
