@@ -263,12 +263,35 @@
   height: fit-content;
 }
 
+#locations section:nth-child(3) section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.3em;
+}
+
 #locations section:nth-child(3) section h3 {
   margin-bottom: 0.2em;
 }
 
 #locations section:nth-child(3) section label {
   margin-left: 0.5em;
+}
+
+#locations section:nth-child(3) section label input {
+  margin: 0;
+  padding: 0;
+  width: 1.5em;
+  border-radius: 0.15em;
+  -webkit-transform: translateY(-0.075em);
+          transform: translateY(-0.075em);
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
 }
 
 #locations section:nth-child(3) #javascriptOff {
@@ -326,6 +349,7 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+  min-width: 500px;
 }
 
 #addLocations > section h1 {
@@ -376,6 +400,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  min-width: 400px;
 }
 
 #addLocations form section {
@@ -438,6 +463,77 @@
 
 #addLocations form label textarea {
   font-size: 0.8em;
+}
+
+#addLocations form label[for="setup"] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px 1fr 1fr;
+      grid-template-columns: 50px 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#addLocations form label[for="setup"] label {
+  border-bottom: none;
+  font-size: 0.7em;
+  max-width: 250px;
+}
+
+#addLocations form label[for="setup"] label input {
+  margin: 0;
+  margin-right: 2.5em;
+  padding: 0;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 0.15em;
+  -webkit-transform: translateY(-0.075em);
+          transform: translateY(-0.075em);
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+#addLocations form label[for="setup"] label:nth-child(1) {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+}
+
+#addLocations form label[for="setup"] label:nth-child(2) {
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+#addLocations form label[for="setup"] label:nth-child(3) {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+#addLocations form label[for="setup"] label:nth-child(4) {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+}
+
+#addLocations form label[for="setup"] label:nth-child(5) {
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+}
+
+#addLocations form label[for="setup"] label:nth-child(6) {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
 }
 
 #addLocations form input[type="submit"],
