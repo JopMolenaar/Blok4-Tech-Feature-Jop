@@ -1,6 +1,7 @@
 const allGoogleMapsLinks = document.querySelectorAll("#locations ul li a")
 const allListItems = document.querySelectorAll("#locations ul li")
 
+// progressive enhancement
 allGoogleMapsLinks.forEach((link) => {
     link.style.display = "none"
     link.style.top = "50%"
@@ -8,6 +9,8 @@ allGoogleMapsLinks.forEach((link) => {
     link.style.left = "50%"
     link.style.transform = "translate(-50%, -50%)"
 })
+
+// google maps link function
 let active = false
 allListItems.forEach((item) => {
     item.addEventListener("click", () => {

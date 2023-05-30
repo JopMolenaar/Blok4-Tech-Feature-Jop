@@ -281,6 +281,7 @@
 
 #locations section:nth-child(3) section h4 {
   margin-bottom: 0.2em;
+  display: none;
 }
 
 #locations section:nth-child(3) section label {
@@ -305,7 +306,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 15.625em;
+  width: 10.625em;
   color: #c50000;
 }
 

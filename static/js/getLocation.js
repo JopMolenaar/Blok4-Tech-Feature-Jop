@@ -1,7 +1,6 @@
 const countryFilled = document.getElementById("countryFilled")
 const cityFilled = document.getElementById("cityFilled")
 const AtFilled = document.getElementById("AtFilled")
-// const ipAdress = document.getElementById("ipAdress")
 const jsOff = (document.getElementById("javascriptOffAtAdd").style.display = "none")
 const country = document.getElementById("country")
 const city = document.getElementById("city")
@@ -10,7 +9,7 @@ const button = document.getElementById("findLocation")
 const pCoordinates = document.getElementById("coordinates")
 let buttonClicked = false
 const findip = () => {
-    // Externe api
+    // Externe api for ip, automatic filled in form function
     $.get("https://ipapi.co/" + "" + "/json", (data) => {
         if (buttonClicked === false) {
             buttonClicked = true
@@ -34,7 +33,7 @@ const findip = () => {
             pCity.textContent = data.city
             cityFilled.appendChild(pCity)
 
-            // Geolocation web api
+            // Geolocation web api, gets the coordinates form your location
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords
                 pCoordinates.value = `${latitude},${longitude}`

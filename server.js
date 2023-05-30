@@ -61,13 +61,14 @@ const add = async (req, res) => {
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
-        const discription = slug(req.body.discription).split("<", "")
+        const discription = slug(req.body.discription).replace("<", "")
+        const coordinates = slug(req.body.coordinates).replace("<", "")
         data.push({
             country: country,
             city: city,
             adress: adress,
             adressForClass: adressForClass,
-            coordinates: req.body ? req.body.coordinates : null,
+            coordinates: req.body ? coordinates : null,
             img: req.file ? req.file.filename : null,
             discription: discription,
             setup: {
