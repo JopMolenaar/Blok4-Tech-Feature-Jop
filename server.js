@@ -7,7 +7,6 @@ const client = new MongoClient(MONGO_URI, {
 })
 client.connect()
 const path = require("path")
-// const xss = require("xss")
 const slug = require("slug")
 const multer = require("multer")
 const storage = multer.diskStorage({
@@ -62,7 +61,7 @@ const add = async (req, res) => {
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
-        const discription = slug(req.body.discription).replace("<", "")
+        const discription = slug(req.body.discription).split("<", "")
         data.push({
             country: country,
             city: city,

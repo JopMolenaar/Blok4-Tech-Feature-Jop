@@ -64,7 +64,7 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
         max-width: 103.75em;
         max-height: 90%;
         overflow-y: auto;
-        grid-template-columns: repeat(auto-fit, minmax(28.3em, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(27em, 1fr));
         li {
             place-self: center;
             display: grid;
@@ -75,7 +75,7 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
             border-radius: 0.9375em;
             justify-content: center;
             align-items: center;
-            width: 28.125em;
+            width: 27em;
             height: 21.875em;
             overflow: hidden;
             position: relative;
@@ -100,6 +100,7 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
                 padding: 0.3em;
                 max-width: 9.375em;
                 overflow: hidden;
+                font-size: 1.3em;
             }
             p:nth-child(2) {
                 grid-column-start: 1;
@@ -254,7 +255,7 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
         }
     }
     form {
-        width: 30%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         height: 50%;
@@ -265,7 +266,8 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
         padding-bottom: 1em;
         font-size: 2em;
         justify-content: space-between;
-        min-width: 25em;
+        min-width: 15em;
+        max-width: 25em;
         section {
             width: 100%;
             display: flex;
