@@ -54,10 +54,12 @@ window.onload = () => {
     const fixOptions = () => {
         const options = filterNav.querySelectorAll("option")
         options.forEach((option) => {
-            if ((optionValueArray.includes(`${option.value}`) && option.value != 0) || option.value === "") {
+            let theValue = option.value
+            const firstLetterCapOption = theValue.charAt(0).toUpperCase() + theValue.slice(1)
+            if ((optionValueArray.includes(`${firstLetterCapOption}`) && firstLetterCapOption != 0) || firstLetterCapOption === "") {
                 option.style.display = "none"
             }
-            optionValueArray.push(`${option.value}`)
+            optionValueArray.push(`${firstLetterCapOption}`)
         })
     }
 

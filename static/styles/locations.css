@@ -1,13 +1,13 @@
 #locations {
-  height: calc(100% - header);
+  height: calc(100vh - 4em);
   width: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr fit-content;
       grid-template-columns: 1fr -webkit-fit-content;
       grid-template-columns: 1fr fit-content;
-  -ms-grid-rows: 100px 1fr;
-      grid-template-rows: 100px 1fr;
+  -ms-grid-rows: 6.25em 1fr;
+      grid-template-rows: 6.25em 1fr;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -34,24 +34,26 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 1em;
+  margin: 1em;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  margin-right: 1em;
-  margin-top: 1em;
 }
 
-#locations section:nth-child(1) h1 {
+#locations section:nth-child(1) h2 {
   font-size: 2em;
   margin: 0;
-  margin-bottom: 0.6em;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  height: 32px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 #locations section:nth-child(1) a {
@@ -61,7 +63,7 @@
   font-size: 1.3em;
   background-color: white;
   border: solid black 2px;
-  border-radius: 10px;
+  border-radius: 0.625em;
   width: 9em;
   height: 2em;
   -webkit-box-pack: center;
@@ -83,7 +85,7 @@
   font-size: 1.3em;
   display: -ms-grid;
   display: grid;
-  width: 95%;
+  width: 98%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -93,11 +95,11 @@
   padding-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1660px;
+  max-width: 103.75em;
   max-height: 90%;
   overflow-y: auto;
-  -ms-grid-columns: (minmax(458px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(458px, 1fr));
+  -ms-grid-columns: (minmax(28.3em, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(28.3em, 1fr));
 }
 
 #locations ul li {
@@ -106,20 +108,20 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 200px 1fr 1fr 1fr 1fr;
-      grid-template-rows: 200px 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 12.5em 1fr 1fr 1fr 1fr;
+      grid-template-rows: 12.5em 1fr 1fr 1fr 1fr;
   list-style-type: none;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  border-radius: 15px;
+  border-radius: 0.9375em;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 450px;
-  height: 350px;
+  width: 28.125em;
+  height: 21.875em;
   overflow: hidden;
   position: relative;
 }
@@ -135,7 +137,7 @@
   -ms-grid-row: 1;
       grid-row-start: 1;
   grid-row-end: 2;
-  height: 200px;
+  height: 12.5em;
 }
 
 #locations ul li div img {
@@ -151,7 +153,7 @@
   margin: 0;
   margin: 0.2em;
   padding: 0.3em;
-  max-width: 150px;
+  max-width: 9.375em;
   overflow: hidden;
 }
 
@@ -188,24 +190,25 @@
   grid-column-end: 4;
   -ms-grid-row: 2;
       grid-row-start: 2;
-  grid-row-end: 5;
+  grid-row-end: 4;
   border-bottom: solid black 1px;
   border-left: solid black 1px;
   border-top: solid black 1px;
   padding-top: 0;
   margin-top: 0.5em;
   height: 100%;
-  max-width: 300px;
+  max-width: 18.75em;
+  overflow-y: auto;
 }
 
 #locations ul li p:nth-child(6) {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 4;
-  -ms-grid-row: 5;
-      grid-row-start: 5;
+  -ms-grid-row: 4;
+      grid-row-start: 4;
   grid-row-end: 6;
-  max-width: 300px;
+  max-width: 18.75em;
 }
 
 #locations ul li a {
@@ -228,7 +231,7 @@
   -ms-flex-line-pack: center;
       align-content: center;
   height: 3em;
-  border-radius: 10px;
+  border-radius: 0.625em;
   background-color: #4c4c4c;
   color: #e3e3e3;
 }
@@ -255,7 +258,7 @@
   position: relative;
 }
 
-#locations section:nth-child(3) h2 {
+#locations section:nth-child(3) h3 {
   width: 100%;
   text-align: center;
   height: -webkit-fit-content;
@@ -274,7 +277,7 @@
   gap: 0.3em;
 }
 
-#locations section:nth-child(3) section h3 {
+#locations section:nth-child(3) section h4 {
   margin-bottom: 0.2em;
 }
 
@@ -300,7 +303,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 250px;
+  width: 15.625em;
   color: #c50000;
 }
 
@@ -319,6 +322,7 @@
 }
 
 #addLocations {
+  height: calc(100vh - 4em);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -346,13 +350,13 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 50%;
+  width: 40%;
   margin-left: auto;
   margin-right: auto;
-  min-width: 500px;
+  min-width: 31.25em;
 }
 
-#addLocations > section h1 {
+#addLocations > section h2 {
   font-size: 3em;
   width: 100%;
   display: -webkit-box;
@@ -370,7 +374,7 @@
   font-size: 1.3em;
   background-color: white;
   border: solid black 2px;
-  border-radius: 10px;
+  border-radius: 0.625em;
   width: 9em;
   height: 2em;
   -webkit-box-pack: center;
@@ -383,7 +387,7 @@
 }
 
 #addLocations form {
-  width: 50%;
+  width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -394,13 +398,15 @@
   height: 50%;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  border-radius: 10px;
+  border-radius: 0.625em;
   padding: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   font-size: 2em;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-width: 400px;
+  min-width: 25em;
 }
 
 #addLocations form section {
@@ -432,7 +438,7 @@
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  max-width: 200px;
+  max-width: 12.5em;
   place-self: end;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
@@ -457,7 +463,7 @@
   width: 35%;
   height: 100%;
   font-size: 1em;
-  border-radius: 10px;
+  border-radius: 0.625em;
   border: none;
 }
 
@@ -468,8 +474,8 @@
 #addLocations form label[for="setup"] {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50px 1fr 1fr;
-      grid-template-columns: 50px 1fr 1fr;
+  -ms-grid-columns: 3.125em 1fr 1fr;
+      grid-template-columns: 3.125em 1fr 1fr;
   -ms-grid-rows: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
 }
@@ -477,7 +483,7 @@
 #addLocations form label[for="setup"] label {
   border-bottom: none;
   font-size: 0.7em;
-  max-width: 250px;
+  max-width: 15.625em;
 }
 
 #addLocations form label[for="setup"] label input {
@@ -540,13 +546,13 @@
 #addLocations form button {
   all: unset;
   text-align: center;
-  height: 1.4em;
+  height: 2em;
   font-size: 0.8em;
   width: 30%;
   border: solid black 2px;
   background-color: white;
-  border-radius: 5px;
-  max-width: 200px;
+  border-radius: 0.3125em;
+  max-width: 12.5em;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -575,10 +581,10 @@
   opacity: 0;
 }
 
-@media (min-width: 1050px) {
+@media (min-width: 65.625em) {
   #locations {
-    -ms-grid-columns: 400px 1fr;
-        grid-template-columns: 400px 1fr;
+    -ms-grid-columns: 25em 1fr;
+        grid-template-columns: 25em 1fr;
   }
   #locations section:nth-child(1) {
     -webkit-box-orient: horizontal;
@@ -588,16 +594,14 @@
     margin-left: auto;
     margin-right: auto;
     gap: 1em;
-    margin-top: 2em;
     margin-bottom: 0;
   }
-  #locations section:nth-child(1) h1 {
+  #locations section:nth-child(1) h2 {
     font-size: 3em;
-    margin-bottom: 0.6em;
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 81.25em) {
   #locations section:nth-child(1) {
     margin-left: auto;
     margin-right: auto;

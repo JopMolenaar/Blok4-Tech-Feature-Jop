@@ -5,14 +5,14 @@ $color-text-black: #232323;
 $color-parel-white: #ffffff;
 $color-hover-a: #cecece;
 $color-span: red;
+$shadow-header: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
 body {
     margin: 0;
     padding: 0;
     position: relative;
     min-height: 100%;
-    // overflow-x: hidden;
-    background-color: #eeeeee;
+    background-color: $color-text-white;
 }
 
 /* The hide class */
@@ -35,20 +35,30 @@ summary {
     cursor: pointer;
 }
 img {
-    width: 100px;
+    width: 6.25em;
     height: auto;
 }
 
 header {
     height: 4em;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: $shadow-header;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    img {
-        margin-left: 2em;
-        height: 80%;
-        width: auto;
+    section {
+        display: flex;
+        flex-direction: row;
+        width: 30em;
+        height: 4em;
+        align-items: center;
+        img {
+            margin-left: 1em;
+            height: 80%;
+            width: auto;
+        }
+        h1 {
+            font-size: 1.5em;
+        }
     }
     ul {
         display: flex;
@@ -60,117 +70,6 @@ header {
             a {
                 font-size: 1.4em;
                 color: $color-text-black;
-            }
-        }
-    }
-}
-
-main {
-    height: calc(100vh - 4em);
-    display: flex;
-    nav {
-        border-right: $color-black solid 2px;
-        width: 30vw;
-        min-width: 10em;
-        ul {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            li {
-                width: 100%;
-                border-bottom: $color-black solid 1px;
-                a {
-                    padding: 0.4em;
-                    width: 100%;
-                    height: 4em;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    p {
-                        margin: 0;
-                        margin-left: 1em;
-                        height: fit-content;
-                        color: $color-text-black;
-                    }
-                    img {
-                        width: 40px;
-                    }
-                }
-                a:hover,
-                a:focus {
-                    background-color: $color-hover-a;
-                }
-            }
-        }
-        ul::-webkit-scrollbar {
-            display: none;
-        }
-    }
-    > .chatPlace {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        > div {
-            width: 100%;
-            height: 100%;
-            display: none;
-            flex-direction: column;
-            > div:nth-child(1) {
-                display: flex;
-                width: 100%;
-                flex-direction: row;
-                height: 5%;
-                gap: 4em;
-                border-bottom: #232323 solid 3px;
-                padding: 0.5em;
-                > img {
-                    width: auto;
-                    height: 100%;
-                }
-            }
-            > div:nth-child(2) {
-                height: 85%;
-                overflow: auto;
-                padding: 0;
-                flex-direction: column;
-                div {
-                    width: 95%;
-                    height: fit-content;
-                    font-size: 1.5em;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: end;
-                    p {
-                        border-radius: 10px;
-                        margin: 0;
-                        margin-top: 0.8em;
-                        padding: 0.5em;
-                        width: fit-content;
-                        height: fit-content;
-                        background-color: rgb(39, 39, 39);
-                        color: #eeeeee;
-                    }
-                }
-            }
-            div:nth-child(3) {
-                display: flex;
-                height: 10%;
-                flex-direction: row;
-                form {
-                    display: flex;
-                    flex-direction: row;
-                }
-                input {
-                    height: 5em;
-                    width: 100%;
-                    height: 100%;
-                }
             }
         }
     }

@@ -62,12 +62,6 @@ const add = async (req, res) => {
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
-        // const setup = slug(req.body.setup)
-        //     .replace(/\d+|^\s+|\s+$/g, "")
-        //     .split("-")
-        //     .join(" ")
-        //     .split(" en ")
-        //     .join(" ")
 
         data.push({
             country: country,

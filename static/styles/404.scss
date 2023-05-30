@@ -1,7 +1,9 @@
+$color-background: antiquewhite;
+
 #page-not-found {
     height: 100vh;
     width: 100vw;
-    background-color: antiquewhite;
+    background-color: $color-background;
     display: flex;
     justify-content: center;
     align-items: center;
