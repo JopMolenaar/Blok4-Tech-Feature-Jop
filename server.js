@@ -9,15 +9,18 @@ client.connect()
 const path = require("path")
 const slug = require("slug")
 const multer = require("multer")
+
+// defines path for images, replaces file name with unique file name
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "static/upload/")
+    destination: (req, file, setPath) => {
+        setPath(null, "static/upload/")
     },
-    filename: (req, file, cb) => {
+    filename: (req, file, replaceFileName) => {
         console.log(file)
-        cb(null, Date.now() + path.extname(file.originalname))
+        replaceFileName(null, Date.now() + path.extname(file.originalname))
     },
 })
+
 const upload = multer({ storage: storage })
 const app = express()
 const PORT = 3000
@@ -28,6 +31,8 @@ const ObjectId = require("mongodb").ObjectId
 app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
 app.set("views", "./views")
+
+// __dirname is something out of javascript
 app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
 
@@ -54,15 +59,21 @@ const add = async (req, res) => {
         const dbLocations = database.collection("locations")
         const getLocations = await dbLocations.find().toArray()
         console.log(getLocations)
+
+        // gets all existing loations out of the db for a double locations check
         getLocations.forEach((location) => {
             doubleLocationsArray.push(`${location.country}, ${location.city}, ${location.adress}`)
         })
+
+        // replace things like < > / ` etc. to nothing (a bit security)
         const country = slug(req.body.country).replace(/[^a-zA-Z]/g, "")
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const discription = slug(req.body.discription).replace("<", "")
         const coordinates = slug(req.body.coordinates).replace("<", "")
+
+        // db structure
         data.push({
             country: country,
             city: city,
@@ -80,6 +91,8 @@ const add = async (req, res) => {
                 pole: req.body.pole,
             },
         })
+
+        // double locations check
         if (doubleLocationsArray.includes(`${data[0].country}, ${data[0].city}, ${data[0].adress}`)) {
             const errorExists = "Location already exists"
             res.render("addLocations", { error: errorExists })
