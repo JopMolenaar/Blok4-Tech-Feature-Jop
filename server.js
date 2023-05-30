@@ -50,19 +50,19 @@ app.get("/locations", async (req, res) => {
 const add = async (req, res) => {
     try {
         let data = []
-        let authentication = []
+        let doubleLocationsArray = []
         const database = client.db("db_locations")
         const dbLocations = database.collection("locations")
         const getLocations = await dbLocations.find().toArray()
         console.log(getLocations)
         getLocations.forEach((location) => {
-            authentication.push(`${location.country}, ${location.city}, ${location.adress}`)
+            doubleLocationsArray.push(`${location.country}, ${location.city}, ${location.adress}`)
         })
         const country = slug(req.body.country).replace(/[^a-zA-Z]/g, "")
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
-
+        const discription = slug(req.body.discription).replace("<", "")
         data.push({
             country: country,
             city: city,
@@ -70,7 +70,7 @@ const add = async (req, res) => {
             adressForClass: adressForClass,
             coordinates: req.body ? req.body.coordinates : null,
             img: req.file ? req.file.filename : null,
-            discription: req.body.discription,
+            discription: discription,
             setup: {
                 highbar: req.body.highbar,
                 mediumbar: req.body.mediumbar,
@@ -80,7 +80,7 @@ const add = async (req, res) => {
                 pole: req.body.pole,
             },
         })
-        if (authentication.includes(`${data[0].country}, ${data[0].city}, ${data[0].adress}`)) {
+        if (doubleLocationsArray.includes(`${data[0].country}, ${data[0].city}, ${data[0].adress}`)) {
             const errorExists = "Location already exists"
             res.render("addLocations", { error: errorExists })
         } else {
