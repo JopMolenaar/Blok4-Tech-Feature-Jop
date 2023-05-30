@@ -56,7 +56,7 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
         width: 98%;
         height: fit-content;
         padding: 0;
-        gap: 2em;
+        gap: 1em;
         margin: 2em;
         padding-bottom: 5em;
         margin-left: auto;
@@ -75,7 +75,8 @@ $shadow-box: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8
             border-radius: 0.9375em;
             justify-content: center;
             align-items: center;
-            width: 27em;
+            width: 100%;
+            max-width: 26em;
             height: 21.875em;
             overflow: hidden;
             position: relative;
