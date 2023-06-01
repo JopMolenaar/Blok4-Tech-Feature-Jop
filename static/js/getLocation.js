@@ -5,10 +5,10 @@ const jsOff = (document.getElementById("javascriptOffAtAdd").style.display = "no
 const country = document.getElementById("country")
 const city = document.getElementById("city")
 const park = document.getElementById("park")
-const button = document.getElementById("findLocation")
+const ipButton = document.getElementById("findLocation")
 const pCoordinates = document.getElementById("coordinates")
 let buttonClicked = false
-const findip = () => {
+ipButton.addEventListener("click", () => {
     // Externe api for ip, automatic filled in form function
     $.get("https://ipapi.co/" + "" + "/json", (data) => {
         if (buttonClicked === false) {
@@ -43,9 +43,9 @@ const findip = () => {
             const pPark = document.createElement("p")
             pPark.textContent = data.org
             AtFilled.appendChild(pPark)
-            button.textContent = "Dont use my location"
+            ipButton.textContent = "Dont use my location"
         } else {
-            button.textContent = "Use my location"
+            ipButton.textContent = "Use my location"
             buttonClicked = false
             country.value = ""
             city.value = ""
@@ -68,4 +68,4 @@ const findip = () => {
             })
         }
     })
-}
+})
