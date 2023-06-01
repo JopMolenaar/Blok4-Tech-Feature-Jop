@@ -32,7 +32,7 @@ app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
 app.set("views", "./views")
 
-// __dirname is something out of javascript
+// __dirname is something out of typescript
 app.use(express.static(path.join(__dirname, "/static")))
 app.use(express.urlencoded({ extended: true }))
 
@@ -70,8 +70,8 @@ const add = async (req, res) => {
         const city = slug(req.body.city).replace(/[^a-zA-Z]/g, "")
         const adress = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
         const adressForClass = slug(req.body.adress).replace(/[^a-zA-Z]/g, "")
-        const discription = slug(req.body.discription).replace("<", "")
-        const coordinates = slug(req.body.coordinates).replace("<", "")
+        const discription = slug(req.body.discription, " ", { remove: "<" })
+        const coordinates = slug(req.body.coordinates, { remove: "<" })
 
         // db structure
         data.push({
